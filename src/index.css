@@ -11,3 +11,59 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.wd-bg-ebony        { background-color: #595A4A; }
+.wd-bg-jet          { background-color: #363635; }
+.wd-bg-green-yellow { background-color: #B0FE76; }
+.wd-bg-light-green  { background-color: #81E979; }
+.wd-bg-camb-blue    { background-color: #8FBB99; }
+
+.wd-ebony        { color: #595A4A; }
+.wd-jet          { color: #363635; }
+.wd-green-yellow { color: #B0FE76; }
+.wd-light-green  { color: #81E979; }
+.wd-camb-blue    { color: #8FBB99; }
+
+.wd-welcome-font {
+    font-family: "Poetsen One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 15ex;
+}
+
+.wd-primary-font {
+  font-family: "Rosarivo", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.wd-secondary-font {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.wd-hor-divider {
+    height: 2px;
+    background-color: #81E979;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.wd-primary-btn {
+    background-color: #81E979;
+    border: solid 1px #363635;
+    border-radius: 5px;
+    padding: 5px 15px;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.wd-color-on-hover:hover {
+    color: #B0FE76;
+}
+
+.wd-jet-border {
+    border: solid 1px #363635;
+}

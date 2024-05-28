@@ -1,0 +1,7 @@
+.wd-profile-pic {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: solid 5px #81E979;
+    margin: 10px;
+}
