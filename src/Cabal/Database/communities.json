@@ -1,0 +1,20 @@
+[
+    {
+        "id": "1",
+        "name": "JFK: The Truth",
+        "description": "A circle about the assassination of John F. Kennedy.",
+        "image": "images/blue.jpg"
+    },
+    {
+        "id": "2",
+        "name": "Aliens Among Us",
+        "description": "Uncovering the truth about extraterrestrial life.",
+        "image": "images/blue.jpg"
+    },
+    {
+        "id": "3",
+        "name": "Unsolved Mysteries",
+        "description": "What really happened? We may never know.",
+        "image": "images/blue.jpg"
+    }
+]
