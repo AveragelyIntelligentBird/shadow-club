@@ -1,26 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './styles.css';
+import { Navigate, Route, Routes, HashRouter } from 'react-router-dom';
+import Cabal from './Cabal';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+    <HashRouter>
+      <div className="h-100">
+        <Routes>
+          <Route path="/"
+                 element={<Navigate to="Cabal" />} />
+          <Route path="/Cabal/*" element={<Cabal />} />
+        </Routes>
+      </div>
+    </HashRouter>
+);}
