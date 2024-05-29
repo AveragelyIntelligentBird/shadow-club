@@ -19,8 +19,8 @@ export default function Profile() {
     return (
         <div style={{height: "100vh"}}
              className="wd-bg-ebony">
-            <div className="fs-4 p-2 wd-green-yellow wd-primary-font text-center">
-                Shadow <GiWarlockEye className="fs-1 mb-4"/> Club
+            <div className="fs-2 p-2 px-4 mb-3 mx-3 rounded-2 wd-green-yellow wd-primary-font  wd-bg-jet ">
+                <GiWarlockEye className="fs-1 mb-2"/> Cabal
             </div>
             {
                 user &&
