@@ -1,8 +1,8 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import CabalNavigation from "./Navigation";
-import HomeFeed from "./Posts";
-import CommunityFeed from "./Circles/CommunityFeed";
-import Circles from "./Circles";
+import CabalNavigation from "../Navigation";
+import HomeFeed from "../Posts";
+import CommunityFeed from "../Circles/CommunityFeed";
+import Circles from "../Circles";
 import "../styles.css";
 
 export default function Cabal() {
