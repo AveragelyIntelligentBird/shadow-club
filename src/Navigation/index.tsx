@@ -7,8 +7,8 @@ import { ReactElement } from "react";
 export default function CabalNavigation(): ReactElement{
   const { pathname } = useLocation();
   const links = [
-    { label: "Feed", path: `/Cabal/Feed`, icon: BsEyeFill },
-    { label: "Circles",   path: `/Cabal/Circles`, icon: BsGlobe },
+    { label: "Feed", path: `/Feed`, icon: BsEyeFill },
+    { label: "Circles",   path: `/Circles`, icon: BsGlobe },
     // { label: "Profile",  path: "/Kanbas/Calendar",  icon: IoCalendarOutline },
     // { label: "Messages",     path: "/Kanbas/Inbox",     icon: FaInbox },
   ];
