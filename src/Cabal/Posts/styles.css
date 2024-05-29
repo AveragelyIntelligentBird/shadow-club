@@ -1,0 +1,79 @@
+.post {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 8px;
+    border-radius: 8px;
+    background-color: #363635;
+  }
+  
+  .post-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #8faf96;
+  }
+  
+  .post-image {
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+  }
+  
+  .post-body {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #8faf96;
+  }
+
+  .post-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .reply-button,
+  .like-button {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #8faf96;
+  }
+  
+  .reply-button:hover,
+  .like-button:hover {
+    text-decoration: underline;
+  }
+
+  .feed {
+    display: flex;
+    flex-direction: column;
+    background-color: #8faf96;
+  }
+
+  .feed-selector {
+    display: flex;
+    justify-content: center;
+    
+  }
+  
+  .tab {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .tab.selected {
+    background-color: #8faf96; /* Same color as feed background */
+    /*border-bottom: 2px solid #000000;  Optional: to highlight the selected tab */
+  }
+  
+  .tab:not(.selected) {
+    background-color: #595A4A; /* Secondary color for deselected tabs */
+  }
+  
+  .tab:not(.selected):hover {
+    background-color: #627366; /* Optional: slightly darker on hover */
+  }
