@@ -50,6 +50,13 @@ code {
     margin-bottom: 5px;
 }
 
+.wd-vert-divider {
+    width: 2px;
+    background-color: #81E979;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
 .wd-primary-btn {
     background-color: #81E979;
     border: solid 1px #363635;
@@ -76,12 +83,6 @@ code {
     border: solid 1px #363635;
 }
 
-/*
-html body {
-  background-color: #595A4A;
+.wd-green-yellow-bot-border {
+    border-bottom: solid 1px #B0FE76;
 }
-
-body {
-  background-color: #595A4A;
-}
-*/
