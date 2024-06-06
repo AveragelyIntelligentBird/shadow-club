@@ -19,7 +19,7 @@ code {
 .wd-bg-camb-blue    { background-color: #8FBB99; }
 
 .wd-ebony        { color: #595A4A; }
-.wd-jet          { color: #363635; }
+.wd-jet          { color: #363635; } /* This is the primary color */
 .wd-green-yellow { color: #B0FE76; }
 .wd-light-green  { color: #81E979; }
 .wd-camb-blue    { color: #8FBB99; }
@@ -65,6 +65,14 @@ code {
     font-family: "Lato", sans-serif;
     font-weight: 400;
     font-style: normal;
+}
+
+.wd-btn-secondary {
+  --bs-btn-color: #363635 !important;
+  --bs-btn-bg: #8faf96 !important;
+  --bs-btn-border-color: #363635 !important;
+  --bs-btn-hover-color: #fff !important; 
+  border-width: 2px !important;
 }
 
 .wd-color-on-hover:hover {
