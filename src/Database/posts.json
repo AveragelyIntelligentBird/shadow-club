@@ -1,0 +1,44 @@
+[
+    {
+        "id": "000",
+        "title": "The Grassy Knoll",
+        "body": "What really happened on that fateful day in Dallas? Some say there was another shooter on that hill.",
+        "imageURL": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Grassy_Knoll.jpg",
+        "community": "000"
+    },
+    {
+        "id": "001",
+        "title": "The Roswell Incident",
+        "body": "Was it a weather balloon or something more? Some say the government is hiding the truth from us.",
+        "imageURL": "https://upload.wikimedia.org/wikipedia/commons/2/2d/RoswellDailyRecordJuly8%2C1947.jpg",
+        "community": "001"
+    },
+    {
+        "id": "002",
+        "title": "What happened to Madeleine McCann?",
+        "body": "The 3-year-old disappeared from her hotel room in Portugal in 2007. Some say her parents were involved.",
+        "imageURL": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Madeleine_McCann.jpg",
+        "community": "002"
+    },
+    {
+        "id": "003",
+        "title": "The differerent rites of Freemasonry",
+        "body": "Some say there are different rites of Freemasonry, each with its own secrets and rituals.",
+        "imageURL": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Freemasonry.jpg",
+        "community": "003"
+    },
+    {
+        "id": "004",
+        "title": "MK Ultra and the UNABOMBER",
+        "body": "Was Ted Kaczynski a victim of the CIA's mind control experiments? Some say he was a patsy.",
+        "imageURL": "https://upload.wikimedia.org/wikipedia/commons/4/4b/MK_Ultra.jpg",
+        "community": "004"
+    },
+    {
+        "id": "005",
+        "title": "The LBJ Connection",
+        "body": "What did Lyndon B. Johnson know about the JFK assassination? Some say he was involved.",
+        "imageURL": "https://upload.wikimedia.org/wikipedia/commons/4/4b/LBJ.jpg",
+        "community": "000"
+    }
+]

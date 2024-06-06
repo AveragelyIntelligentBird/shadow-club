@@ -16,17 +16,17 @@ export default function CommunityHeader({ id, name, description, bannerImage, me
     return (
         <div className="border community-header border-3">
             <Banner id={id} image={bannerImage}/>
-            <div>
-                <h1 className="text-gyellow">
+            <div className="pt-2">
+                <h1 className="wd-green-yellow wd-primary-font">
                     {name + "   "}
                     {member ? (
-                        <button type="button" className="btn rounded-pill btn-sm btn-secondary">Leave <FaTimes/></button>
+                        <button type="button" className="btn rounded-pill btn-sm wd-btn-secondary">Leave <FaTimes/></button>
                     ) : (
-                        <button type="button" className="btn rounded-pill btn-sm btn-secondary">Join <FaPlus/></button>
+                        <button type="button" className="btn rounded-pill btn-sm wd-btn-secondary">Join <FaPlus/></button>
                     )}
                 </h1>
             </div>
-            <p className="text-gyellow">{description}</p>
+            <p className="wd-green-yellow wd-secondary-font">{description}</p>
         </div>
     );
 }
