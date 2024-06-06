@@ -9,8 +9,8 @@ export default function Cabal() {
     return (
       <div id="cabal" className="h-100">
         <div className="d-flex h-100">
-          <div className="bg-gyellow d-none d-md-block">
-            <CabalNavigation />
+          <div className="wd-bg-green-yellow d-none d-md-block">
+            {/* <CabalNavigation /> */}
           </div>
           <div className="flex-fill p-4">
             <Routes>

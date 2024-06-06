@@ -1,0 +1,17 @@
+[
+    {
+        "id": "000",
+        "post": "000",
+        "body": "What a great post!"
+    },
+    {
+        "id": "001",
+        "post": "000",
+        "body": "What a great post!"
+    },
+    {
+        "id": "002",
+        "post": "001",
+        "body": "What a great post!"
+    }
+]
