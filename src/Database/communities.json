@@ -1,20 +1,37 @@
 [
     {
-        "id": "1",
+        "id": "000",
         "name": "JFK: The Truth",
         "description": "A circle about the assassination of John F. Kennedy.",
-        "image": "images/blue.jpg"
+        "image": "images/blue.jpg",
+        "public": true
     },
     {
-        "id": "2",
+        "id": "001",
         "name": "Aliens Among Us",
         "description": "Uncovering the truth about extraterrestrial life.",
-        "image": "images/blue.jpg"
+        "image": "images/blue.jpg",
+        "public": true
     },
     {
-        "id": "3",
+        "id": "002",
         "name": "Unsolved Mysteries",
         "description": "What really happened? We may never know.",
-        "image": "images/blue.jpg"
+        "image": "images/blue.jpg",
+        "public": false
+    },
+    {
+        "id": "003",
+        "name": "Freemasonry World Wide",
+        "description": "A circle for all Freemasons to connect and share information.",
+        "image": "images/blue.jpg",
+        "public": true
+    },
+    {
+        "id": "004",
+        "name": "MK Ultra",
+        "description": "A circle about the CIA's mind control experiments.",
+        "image": "images/blue.jpg",
+        "public": false
     }
 ]

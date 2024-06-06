@@ -1,7 +1,7 @@
 .community-header {
     background-color: #363635;
     color: #81E979;
-    /*border-radius: 30px;*/
+    border-radius: 1rem;
     padding: 10px;
 }
 
@@ -17,4 +17,15 @@
 
 .community-list { 
     margin-bottom: 10px;
+    padding: 10px;
+    background-color: #595A4A;
+    color: #595A4A;
+}
+
+.community-list-item { 
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: #595A4A;
+    color: #595A4A;
+    border-radius: 1rem;
 }

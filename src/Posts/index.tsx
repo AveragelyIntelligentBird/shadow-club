@@ -1,93 +1,53 @@
-import { useState } from "react";
-import Feed, {FeedProps} from "./Feed";
-import FeedSelector from "./FeedSelector";
+import React, { useState, ReactElement } from 'react';
+import './styles.css';
+import { Routes, useLocation, useParams } from 'react-router';
+import { Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import Feed from './Feed';
+import { posts, users, communities } from '../Database';
 
-export {
-  Feed, FeedSelector
-};
-
+// FeedSelector component with tabs
 export default function HomeFeed() {
-    const [selectedFeed, setSelectedFeed] = useState('subscribed');
-  // We will route this to a feed tab later, just for demo and integration purposes at meeting
-  const postsSubscribed: {
-      title: string;
-      body: string;
-      imageUrl?: string | undefined;
-      liked?: boolean | undefined;
-    }[] = [
-    {
-      title: "Community Post 1",
-      body: "This is the body of my first post. It's just a simple example of how to create a post component.",
-      imageUrl: "https://example.com/image.jpg",
-      liked: true,
-    },
-    {
-      title: "Community Post 2",
-      body: "This is the body of my second post. This post does not have an image.",
-      liked: false,
-    },
-    {
-      title: "Community Post 3",
-      body: "This is another post with an image.",
-      imageUrl: "https://example.com/another-image.jpg",
-      liked: false,
-    },
-  ];
+  // Following after Anfisa's work in the Post component
+  const { uid } = useParams();
+    const user =
+        users.find((user) => user.uid === uid);
+    const memberOf = user?.profileData.memberOf || [];
+    console.log(memberOf);
+  const {pathname} = useLocation();
 
-  const postsAll: {
-      title: string;
-      body: string;
-      imageUrl?: string | undefined;
-      liked?: boolean | undefined;
-    }[] = [
-      {
-        title: "Community Post 1",
-        body: "This is the body of my first post. It's just a simple example of how to create a post component.",
-        imageUrl: "https://example.com/image.jpg",
-        liked: true,
-      },
-      {
-        title: "Community Post 2",
-        body: "This is the body of my second post. This post does not have an image.",
-        liked: false,
-      },
-      {
-        title: "Community Post 3",
-        body: "This is another post with an image.",
-        imageUrl: "https://example.com/another-image.jpg",
-        liked: false,
-      },
-      {
-        title: "General Post 1",
-        body: "This is the body of my fourth post. This post is in a different community.",
-        imageUrl: "https://example.com/another-image.jpg",
-        liked: false,
-      },
-      {
-        title: "General Post 2",
-        body: "This is the body of my fourth post. This post is in a different community.",
-        imageUrl: "https://example.com/another-image.jpg",
-        liked: false,
-      },
-    ]
+  const allPosts = (posts as Array<any>).filter(
+    (p: any) => ((communities.find((c) => c.id === p.community) || {}).public 
+      || memberOf.includes(p.community))).map((p: any) => {return {...p, liked: user?.profileData.likes.includes(p.id)}});
+  const subPosts = (posts as Array<any>).filter(
+    (p: any) => (memberOf.includes(p.community))).map((p: any) => {return {...p, liked: user?.profileData.likes.includes(p.id)}});
+  const tabs = ["Subscribed", "All"]
 
-  const handleSelectFeed = (feed: 'subscribed' | 'all') => {
-    setSelectedFeed(feed);
-  };
-
-  const posts = selectedFeed === 'subscribed' ? postsSubscribed : postsAll;
   return (
-    <div className="text-primary">
-        {/*
-        <CommunityHeader
-          name="Shadow Club"
-          description="A club for people who love shadows"
-          bannerImage="images/blue.jpg"
-          member={true}
-        />
-        */}
-        <FeedSelector onSelectFeed={handleSelectFeed} />
-        <Feed posts={posts} />
+    <div className="flex-grow-1 wd-bg-ebony p-2">
+      <div className="my-1">
+        {tabs.map((tab) => (
+          <Link
+            to={tab}
+            className={`text-decoration-none p-2 me-2 rounded-2 wd-secondary-font wd-jet-border ${
+              pathname.includes(tab)
+                ? "wd-green-yellow wd-bg-jet"
+                : "wd-camb-blue"
+            }`}>
+            {tab}
+          </Link>
+        ))}
+      </div>
+      {/* Routes for the different tabs */}
+      <div className="me-4 mt-3 rounded-2">
+        <Routes>
+          {/* Route for the Subscribed tab */}
+          <Route path="Subscribed" element={<Feed posts={subPosts} />} />
+          {/* Route for the All tab */}
+          
+          <Route path="All" element={<Feed posts={allPosts} />} />
+        </Routes>
+      </div>
     </div>
   );
 }
