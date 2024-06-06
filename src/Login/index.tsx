@@ -30,14 +30,14 @@ export default function Login() {
                             </div>
                             {" "}
                         </div>
-                        <Link to="/Profile/000/">
+                        <Link to="/000/Profile/000/">
                             <button type="submit" className="wd-primary-btn">
                                 Sign in{" "}
                             </button>
                         </Link>
                     </form>
                 </div>
-                <div style={{width: "2px"}} className="wd-bg-light-green mx-4"></div>
+                <div className="wd-vert-divider mx-4"></div>
                 <div className="flex-grow-1">
                     <h3 className="wd-green-yellow wd-primary-font">Access Code</h3>
                     <form>
@@ -51,7 +51,7 @@ export default function Login() {
                             </div>
                             {" "}
                         </div>
-                        <Link to="/Profile/000/">
+                        <Link to="/000/Profile/000/">
                             <button type="submit" className="wd-primary-btn">
                                 Access {" "}
                             </button>

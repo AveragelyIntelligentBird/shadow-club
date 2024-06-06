@@ -1,67 +1,55 @@
-import * as db from "../Database";
+import {useSelector} from "react-redux";
+import { useLocation } from "react-router";
+import {Link, Route, Routes} from "react-router-dom";
 import './index.css';
 import { useParams } from "react-router";
-import {GiWarlockEye} from "react-icons/gi";
-import { LiaCogSolid } from "react-icons/lia";
-import {Link, Navigate, Route, Routes} from "react-router-dom";
-import { useLocation } from "react-router";
-import Welcome from "../Welcome";
-import Login from "../Login";
-import ProfileEditor from "./Editor";
-import React from "react";
+import { GrEdit } from "react-icons/gr";
+import {GiHoodedFigure} from "react-icons/gi";
 
 export default function Profile() {
     const { uid } = useParams();
+    const { profiles } = useSelector((state:any) => state.profilesReducer);
     const user =
-        db.users.find((user) => user.uid === uid);
-    const tabs = ["Posts", "Replies"];
+        profiles.find((user : any) => user.uid === uid);
+    const tabs = ["Posts", "Replies", "Affiliations"];
     const {pathname} = useLocation();
     return (
-        <div style={{height: "100vh"}}
-             className="wd-bg-ebony">
-            <div className="fs-2 p-2 px-4 mb-3 mx-3 rounded-2 wd-green-yellow wd-primary-font  wd-bg-jet ">
-                <GiWarlockEye className="fs-1 mb-2"/> Cabal
-            </div>
+        <div id="profile-page">
             {
                 user &&
                 <div className="d-flex">
-                    <div className="col-4 wd-bg-jet text-end mx-4 p-5 rounded-2">
-                        <div>
-                            <Link to="Edit" className="float-start">
-                                <LiaCogSolid className="fs-1 mb-4 wd-light-green wd-color-on-hover"/>
-                            </Link>
+                    <div id="profile-card"
+                         className="col-3 wd-bg-jet mx-4 ms-5 p-5 rounded-2">
+                        <div id="username" className="d-flex">
                             <div className="fs-3 wd-green-yellow wd-primary-font px-1">
                                 {user.username}
                             </div>
+                            <Link to="Edit">
+                                <GrEdit className="fs-4 ms-2 wd-camb-blue wd-color-on-hover"/>
+                            </Link>
                         </div>
-                        <img src={user.profileData.avatar} className="wd-profile-pic" alt="avatar pfp"/>
-                        <div className="wd-green-yellow wd-secondary-font mt-2">
+                        <div className="d-flex justify-content-center">
+                            <img src={user.profileData.avatar}
+                                 className="wd-profile-pic"
+                                 alt="avatar pfp"
+                            />
+                        </div>
+                        <div className="wd-green-yellow wd-secondary-font mt-3">
                             {user.profileData.bio} <br/><br/>
                             {user.profileData.MBTI}, {user.profileData.starSign}
                         </div>
                         <div className="wd-hor-divider"></div>
-                        <div className="wd-green-yellow wd-secondary-font"
-                             style={{}}>
-                            <div className="float-start">Joined {user.profileData.memberSince}</div>
-                            <div className="float-end">
-                                <Link to="Affiliations" className="wd-camb-blue">
-                                    Affiliations
-                                </Link>&nbsp;&nbsp;|&nbsp;&nbsp;
-                                <Link to="Following" className="wd-camb-blue">
-                                    Following
-                                </Link>&nbsp;&nbsp;|&nbsp;&nbsp;
-                                <Link to="Followers" className="wd-camb-blue">
-                                    Followers
-                                </Link>
-                            </div>
+                        <div className="wd-green-yellow wd-secondary-font">
+                            Joined {user.profileData.memberSince}
                         </div>
                     </div>
-                    <div className="flex-grow-1">
+                    <div id="profile-content"
+                         className="flex-grow-1">
                         <div className="my-1">
                             {
                                 tabs.map((tab) => (
                                     <Link to={tab}
-                                          className={`text-decoration-none p-2 me-2 rounded-2 wd-secondary-font
+                                          className={`p-2 me-2 rounded-2 text-decoration-none wd-secondary-font
                                                 wd-jet-border
                                               ${pathname.includes(tab)
                                               ? "wd-green-yellow wd-bg-jet"
@@ -77,7 +65,7 @@ export default function Profile() {
                             <Routes>
                                 <Route path="Posts" element={
                                     user.profileData.posts.map(
-                                        (post) => (
+                                        (post : any) => (
                                             <div className="wd-bg-jet wd-green-yellow rounded-2
                                                             wd-secondary-font mb-2 p-3">
                                                 Post {post}
@@ -87,7 +75,7 @@ export default function Profile() {
                                 }/>
                                 <Route path="Replies" element={
                                     user.profileData.replies.map(
-                                        (reply) => (
+                                        (reply : any) => (
                                             <div className="wd-bg-jet wd-green-yellow rounded-2
                                                             wd-secondary-font mb-2 p-3">
                                                 Reply {reply}
