@@ -103,18 +103,3 @@ export default function ProfileEditor() {
         </div>
     );
 }
-
-    // return (
-    //     <div id="profile-editor" className="id-flex justfy-content-center">
-    //         <div
-    //             className="d-flex col-6 rounded-2 align-items-center justify-content-center p-4
-    //         wd-bg-jet wd-camb-blue wd-primary-font"
-    //         >
-    //             <GiHoodedFigure className="fs-1 me-3"/>
-    //             <div className="fs-3 me-3">
-    //                 User not found
-    //             </div>
-    //             <GiHoodedFigure className="fs-1 "/>
-    //         </div>
-    //     </div>
-    // );

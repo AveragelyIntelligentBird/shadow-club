@@ -4,14 +4,13 @@ import { BsEyeFill } from "react-icons/bs";
 import React, { ReactElement } from "react";
 import {GiDoubleFaceMask, GiWarlockEye} from "react-icons/gi";
 
-
 export default function CabalNavigation(): ReactElement {
+    const { uid } = useParams();
     const {pathname} = useLocation();
     const links = [
-        { label: "Profile",  path: "Profile/000",  icon: GiDoubleFaceMask  },
-        {label: "Feed", path: `Feed`, icon: BsEyeFill},
-        {label: "Circles", path: `Circles`, icon: BsGlobe},
-        // { label: "Messages",     path: "/Kanbas/Inbox",     icon: FaInbox },
+        { label: "Profile",  path: `/${uid}/Profile/${uid}`,  icon: GiDoubleFaceMask  },
+        { label: "Feed", path: `/${uid}/Feed`, icon: BsEyeFill },
+        { label: "Circles", path: `/${uid}/Circles`, icon: BsGlobe },
     ];
     return (
         <div id="nav-bar"

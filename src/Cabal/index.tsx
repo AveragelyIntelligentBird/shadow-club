@@ -10,7 +10,7 @@ import Profile from "../Profile";
 
 export default function Cabal() {
     return (
-        <div id="cabal-portal" className="h-100 wd-bg-ebony">
+        <div id="cabal-portal">
             <CabalNavigation/>
             <div className="flex-fill p-4">
                 <Routes>
