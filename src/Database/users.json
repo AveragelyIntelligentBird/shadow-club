@@ -9,18 +9,94 @@
       "password": "123456",
       "address": "1234 Main St",
       "phone": "123-456-7890",
-      "birthday": "01/01/2000",
-      "managedBoards": ["000", "001"]
+      "birthday": "01/01/2000"
     },
     "profileData": {
       "avatar": "/images/reptiloid.jpg",
       "bio": "I'm a reptiloid",
-      "affiliations": "Shadow Government",
       "memberSince": "01/01/2020",
       "starSign": "Capricorn",
       "MBTI": "INTJ",
       "following": ["001", "002"],
       "followers": ["002", "003"],
+      "posts": ["000", "001", "002"],
+      "replies": ["000", "001", "002"],
+      "likes": ["000", "001", "002"],
+      "memberOf": ["000", "001", "002"]
+    }
+  },
+  {
+    "uid": "001",
+    "role": "user",
+    "username": "reptiloid#2",
+    "sensitiveData": {
+      "realName": "Jane Doe",
+      "email": "jane@doe.com",
+      "password": "123456",
+      "address": "345 Primary St",
+      "phone": "123-456-7890",
+      "birthday": "01/01/2000"
+    },
+    "profileData": {
+      "avatar": "/images/reptiloid-1.jpg",
+      "bio": "I'm also a reptiloid",
+      "memberSince": "01/01/2020",
+      "starSign": "Scorpio",
+      "MBTI": "ENFP",
+      "following": ["002","003"],
+      "followers": ["003","000"],
+      "posts": ["000","001","002"],
+      "replies": ["000","001","002"],
+      "likes": ["000","001","002"],
+      "memberOf": ["000","001","002"]
+    }
+  },
+  {
+  "uid": "002",
+  "role": "user",
+  "username": "reptiloid#3",
+  "sensitiveData": {
+    "realName": "Jim Doe",
+    "email": "jim@doe.com",
+    "password": "123456",
+    "address": "567 Secondary St",
+    "phone": "123-456-7890",
+    "birthday": "01/01/2000"
+  },
+  "profileData": {
+    "avatar": "/images/reptiloid-2.jpg",
+    "bio": "I'm yet another reptiloid",
+    "memberSince": "01/01/2020",
+    "starSign": "Gemini",
+    "MBTI": "ISTP",
+    "following": ["003", "000"],
+    "followers": ["000", "001"],
+    "posts": ["000", "001", "002"],
+    "replies": ["000", "001", "002"],
+    "likes": ["000", "001", "002"],
+    "memberOf": ["000", "001", "002"]
+  }
+  },
+  {
+    "uid": "003",
+    "role": "user",
+    "username": "DocAlien",
+    "sensitiveData": {
+      "realName": "Jill Doe",
+      "email": "jill@doe.com",
+      "password": "123456",
+      "address": "1234 Main St",
+      "phone": "123-456-7890",
+      "birthday": "01/01/2000"
+    },
+    "profileData": {
+      "avatar": "/images/alien.png",
+      "bio": "I'm an alien, not a reptiloid!!!",
+      "memberSince": "01/01/2020",
+      "starSign": "Leo",
+      "MBTI": "ESFJ",
+      "following": ["000", "001"],
+      "followers": ["001", "002"],
       "posts": ["000", "001", "002"],
       "replies": ["000", "001", "002"],
       "likes": ["000", "001", "002"],

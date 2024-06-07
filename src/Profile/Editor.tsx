@@ -12,35 +12,7 @@ export default function ProfileEditor() {
     const { profiles } = useSelector((state:any) => state.profilesReducer);
     const profileFind =
         profiles.find((user : any) => user.uid === profileid);
-    const [profile, setProfile] = useState(
-        (profileFind)
-            ? profileFind
-            : {
-                uid: profileid,
-                role: "user",
-                username: "reptiloid#1",
-                sensitiveData: {
-                    realName: "John Doe",
-                    email: "john@doe.com",
-                    password: "123456",
-                    address: "1234 Main St",
-                    phone: "123-456-7890",
-                    birthday: "01/01/2000",
-                    managedBoards: ["000", "001"]
-                },
-                profileData: {
-                    avatar: "/images/reptiloid.jpg",
-                    bio: "I'm a reptiloid",
-                    affiliations: "Shadow Government",
-                    memberSince: "01/01/2020",
-                    starSign: "Capricorn",
-                    MBTI: "INTJ",
-                    following: ["001", "002"],
-                    followers: ["002", "003"],
-                    posts: ["000", "001", "002"],
-                    replies: ["000", "001", "002"]
-                }
-    });
+    const [profile, setProfile] = useState(profileFind);
     return (
         <div id="" className="d-flex justify-content-center">
             {

@@ -1,4 +1,4 @@
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import { useLocation } from "react-router";
 import {Link, Route, Routes} from "react-router-dom";
 import './index.css';
@@ -6,49 +6,29 @@ import NotFound from "../NotFound";
 import { useParams } from "react-router";
 import { GrEdit } from "react-icons/gr";
 import {GiHoodedFigure} from "react-icons/gi";
+import {BsEyeFill} from "react-icons/bs";
+import {RiEyeCloseLine} from "react-icons/ri";
+import {followProfile, unfollowProfile} from "./ProfileReducer";
+import ProfileCard from "./ProfileCard";
+import Affiliations from "./Affiliations";
 
 
 export default function Profile() {
-    const { profileid } = useParams();
+    const { pathname} = useLocation();
+    const { profileId } = useParams();
     const { profiles } = useSelector((state:any) => state.profilesReducer);
-    const user =
-        profiles.find((user : any) => user.uid === profileid);
+    const profile =
+        profiles.find((profile : any) => profile.uid === profileId);
     const tabs = ["Posts", "Replies", "Affiliations"];
-    const {pathname} = useLocation();
     return (
-        (!user)
+        (!profile)
             ?
             <NotFound subject="User"/>
             :
             <div id="profile-page" className="d-flex">
-                <div id="profile-card"
-                     className="col-3 wd-bg-jet mx-4 ms-5 p-5 rounded-2">
-                    <div id="username" className="d-flex">
-                        <div className="fs-3 wd-green-yellow wd-primary-font px-1">
-                            {user.username}
-                        </div>
-                        <Link to="Edit">
-                            <GrEdit className="fs-4 ms-2 wd-camb-blue wd-color-on-hover"/>
-                        </Link>
-                    </div>
-                    <div className="d-flex justify-content-center">
-                        <img src={user.profileData.avatar}
-                             className="wd-profile-pic"
-                             alt="avatar pfp"
-                        />
-                    </div>
-                    <div className="wd-green-yellow wd-secondary-font mt-3">
-                        {user.profileData.bio} <br/><br/>
-                        {user.profileData.MBTI}, {user.profileData.starSign}
-                    </div>
-                    <div className="wd-hor-divider"></div>
-                    <div className="wd-green-yellow wd-secondary-font">
-                        Joined {user.profileData.memberSince}
-                    </div>
-                </div>
-                <div id="profile-content"
-                     className="flex-grow-1">
-                    <div className="my-1">
+                <ProfileCard profile={profile}/>
+                <div id="profile-content" className="flex-grow-1">
+                    <div id="profile-tabs" className="my-1">
                         {
                             tabs.map((tab) => (
                                 <Link to={tab}
@@ -64,28 +44,27 @@ export default function Profile() {
                             ))
                         }
                     </div>
-                    <div className="me-4 mt-3 rounded-2">
+                    <div id="profile-tab-content" className="me-4 mt-3 rounded-2">
                         <Routes>
                             <Route path="Posts" element={
-                                user.profileData.posts.map(
+                                profile.profileData.posts.map(
                                     (post: any) => (
-                                        <div className="wd-bg-jet wd-green-yellow rounded-2
-                                                            wd-secondary-font mb-2 p-3">
+                                        <div className="wd-default-card wd-secondary-font mb-2 p-3">
                                             Post {post}
                                         </div>
                                     )
                                 )
                             }/>
                             <Route path="Replies" element={
-                                user.profileData.replies.map(
+                                profile.profileData.replies.map(
                                     (reply: any) => (
-                                        <div className="wd-bg-jet wd-green-yellow rounded-2
-                                                            wd-secondary-font mb-2 p-3">
+                                        <div className="wd-default-card wd-secondary-font mb-2 p-3">
                                             Reply {reply}
                                         </div>
                                     )
                                 )
                             }/>
+                            <Route path="Affiliations" element={<Affiliations profile={profile}/>}/>
                         </Routes>
                     </div>
                 </div>
