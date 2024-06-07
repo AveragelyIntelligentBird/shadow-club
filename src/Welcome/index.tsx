@@ -3,7 +3,7 @@ import { GiWarlockEye } from "react-icons/gi";
 
 export default function Welcome() {
     return (
-        <div>
+        <div className="flex-fill">
             <div style={{
                 backgroundImage: "url(/images/welcome.jpg)",
                 backgroundRepeat: "no-repeat",

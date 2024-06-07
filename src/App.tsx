@@ -12,7 +12,7 @@ function App() {
     return (
         <Provider store={store}>
             <HashRouter>
-                <div className="main-container">
+                <div className="main-container d-flex">
                     <Routes>
                         <Route path="/" element={<Navigate to="Welcome"/>}/>
                         <Route path="/Welcome" element={<Welcome/>}/>

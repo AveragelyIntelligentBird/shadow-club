@@ -1,77 +1,64 @@
 import {useDispatch, useSelector} from "react-redux";
-import {useLocation, useNavigate, useParams} from "react-router";
-import { GiHoodedFigure } from "react-icons/gi";
-import {useState} from "react";
+import {useNavigate, useParams} from "react-router";
+import React, { useState } from "react";
 import {updateProfile} from "./ProfileReducer";
 import EditorNav from "./EditorNav";
+import NotFound from "../NotFound";
+import {Link, Route, Routes} from "react-router-dom";
+import EditorProfileData from "./EditorProfile";
+import EditorSensitive from "./EditorSensitive";
+import EditorLogin from "./EditorLogin";
 
 export default function ProfileEditor() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { profileid } = useParams();
+    const { profileId } = useParams();
     const { profiles } = useSelector((state:any) => state.profilesReducer);
     const profileFind =
-        profiles.find((user : any) => user.uid === profileid);
-    const [profile, setProfile] = useState(profileFind);
+        profiles.find((user : any) => user.uid === profileId);
+    const [profile, setProfile] = useState(
+        profileFind ? {...profileFind, hasChanged: false} : profileFind
+    );
     return (
-        <div id="" className="d-flex justify-content-center">
-            {
-                profile &&
-                <div className="d-flex">
-                    <div className="d-none d-md-block">
-                        <EditorNav/>
-                    </div>
-                    <div id="profile-editor"
-                         className="col-8 rounded-2 align-items-center justify-content-center p-4
-                    wd-bg-jet wd-camb-blue wd-secondary-font"
-                    >
-                        <div id="wd-higher-edits" className="mb-3 col">
-                            <br/>
-                            <label htmlFor="wd-name" className="col-sm-2 col-form-label">
-                                Username
-                            </label>
-                            <div className="col-sm-10">
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    id="wd-name"
-                                    value={profile.username}
-                                    onChange={(e) =>
-                                        setProfile({...profile, username: e.target.value})
-                                    }
-                                />
-                            </div>
-                            <br/>
-                            <label htmlFor="wd-bio" className="col-sm-2 col-form-label">
-                                Bio
-                            </label>
-                            <textarea
-                                id="wd-bio" rows={10}
-                                className="col-sm-10 form-control"
-                                value={profile.profileData.bio}
-                                onChange={(e) =>
-                                    setProfile({...profile, profileData: {...profile.profileData, bio: e.target.value}})
-                                }
-                            />
-                        </div>
-                        <br/>
-                        <div className="text-nowrap">
-                            <button className="btn btn-md btn-danger me-1 float-end"
+        (!profile)
+            ?
+            <NotFound subject="User"/>
+            :
+            <div id="" className="d-flex justify-content-center">
+                <div className="d-flex col-8 wd-default-card py-4 px-5">
+                    <EditorNav/>
+                    <div className="wd-vert-divider mx-5"/>
+                    <div className="d-flex flex-fill flex-column pb-2">
+                        <Routes>
+                            <Route path="Profile" element={<EditorProfileData profile={profile} setProfile={setProfile}/>}/>
+                            <Route path="Sensitive" element={<EditorSensitive profile={profile} setProfile={setProfile}/>}/>
+                            <Route path="Login" element={<EditorLogin profile={profile} setProfile={setProfile}/>}/>
+                        </Routes>
+                        <div className="align-items-center d-flex">
+                            <button className="wd-primary-btn wd-primary-btn-on-hover me-2"
                                     onClick={() => {
                                         dispatch(updateProfile(profile));
-                                        navigate(`../Profile/${profileid}`);
+                                        setProfile({...profile, hasChanged: false});
                                     }}>
                                 Save
                             </button>
-                            <button className="btn btn-md btn-secondary me-1 float-end"
-                                    onClick={() => navigate(`../Profile/${profileid}`)}>
-                                Cancel
+                            <button className="wd-secondary-btn wd-secondary-btn-on-hover me-2"
+                                    onClick={() => setProfile({...profileFind, hasChanged: false})}>
+                                Revert
                             </button>
+                            {(!profile.hasChanged)
+                                ?
+                                <Link to={`../Profile/${profileId}`} className="wd-camb-blue wd-color-on-hover ms-2">
+                                    Back To Profile
+                                </Link>
+                                :
+                                <div className="wd-mahogany ms-2">
+                                    You have unsaved changes!
+                                </div>
+                            }
                         </div>
-                        <br/><br/>
                     </div>
                 </div>
-            }
-        </div>
+            </div>
     );
 }

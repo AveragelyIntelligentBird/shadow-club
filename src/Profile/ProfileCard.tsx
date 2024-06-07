@@ -22,7 +22,7 @@ export default function ProfileCard(
                 </div>
                 {
                     isThisUser &&
-                    <Link to="Edit">
+                    <Link to="Edit/Profile">
                         <GrEdit className="fs-4 ms-2 wd-camb-blue wd-color-on-hover"/>
                     </Link>
                 }
@@ -48,7 +48,7 @@ export default function ProfileCard(
             </div>
             <div className="wd-green-yellow wd-secondary-font mt-3">
                 {profile.profileData.bio} <br/><br/>
-                {profile.profileData.MBTI}, {profile.profileData.starSign}
+                {profile.profileData.MBTI},  {profile.profileData.starSign}
             </div>
             <div className="wd-hor-divider"></div>
             <div className="wd-green-yellow wd-secondary-font">

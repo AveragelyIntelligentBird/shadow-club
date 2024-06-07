@@ -22,12 +22,14 @@ code {
 .wd-bg-green-yellow { background-color: #B0FE76; }
 .wd-bg-light-green  { background-color: #81E979; }
 .wd-bg-camb-blue    { background-color: #8FBB99; }
+.wd-bg-mahogany     { background-color: #C44900; }
 
 .wd-ebony        { color: #595A4A; }
 .wd-jet          { color: #363635; } /* This is the primary color */
 .wd-green-yellow { color: #B0FE76; }
 .wd-light-green  { color: #81E979; }
 .wd-camb-blue    { color: #8FBB99; }
+.wd-mahogany     { color: #C44900; }
 
 .wd-welcome-font {
     font-family: "Poetsen One", sans-serif;
@@ -70,13 +72,31 @@ code {
 }
 
 .wd-primary-btn {
-    background-color: #81E979;
+    background-color: #68d060;
     border: solid 1px #363635;
     border-radius: 5px;
     padding: 5px 15px;
     font-family: "Lato", sans-serif;
     font-weight: 400;
     font-style: normal;
+}
+
+.wd-primary-btn-on-hover:hover {
+    background-color: #5aa255;
+}
+
+.wd-secondary-btn {
+    background-color: #7ba285;
+    border: solid 1px #363635;
+    border-radius: 5px;
+    padding: 5px 15px;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.wd-secondary-btn-on-hover:hover {
+    background-color: #6b8c72;
 }
 
 .wd-btn-secondary {
@@ -98,3 +118,9 @@ code {
 .wd-green-yellow-bot-border {
     border-bottom: solid 1px #B0FE76;
 }
+
+.wd-input-field-format {
+    background-color: #a5b4a7 !important;
+    color: #363635 !important;
+    border: solid 1px #363635 !important;
+  }

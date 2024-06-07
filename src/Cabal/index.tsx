@@ -9,12 +9,12 @@ import Profile from "../Profile";
 
 export default function Cabal() {
     return (
-        <div id="cabal-portal">
+        <div id="cabal-portal" className="flex-fill">
             <CabalNavigation/>
             <div className="flex-fill p-4">
                 <Routes>
                     <Route path="/Profile/:profileId/" element={<Navigate to="Posts"/>}/>
-                    <Route path="/Profile/:profileId/Edit" element={<ProfileEditor/>}/>
+                    <Route path="/Profile/:profileId/Edit/*" element={<ProfileEditor/>}/>
                     <Route path="/Profile/:profileId/*" element={<Profile/>}/>
                     <Route path="/Feed" element={<HomeFeed/>}/>
                     <Route path="/Circles" element={<Circles/>}/>

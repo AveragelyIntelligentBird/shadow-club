@@ -9,8 +9,9 @@ const profilesSlice = createSlice({
     initialState,
     reducers: {
         updateProfile: (state, {payload: profile}) => {
+            delete profile.hasChanged;
             state.profiles = state.profiles.map((p) =>
-                p.uid === profile._id ? profile : p
+                p.uid === profile.uid ? profile : p
             );
         },
         followProfile: (state, {payload: uids}) => {
