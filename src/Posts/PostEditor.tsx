@@ -7,13 +7,14 @@ import { useParams } from "react-router";
 import { users, communities } from "../Database";
 
 export default function PostEditor() {
-    const { uid, id } = useParams();
-    const user = users.find((user) => user.uid === uid) || {profileData: {memberOf: []}};
+    const { id } = useParams();
+    const community = communities.find((community) => community.id === id);
+    // const user = users.find((user) => user.uid === uid) || {profileData: {memberOf: []}};
     const post = {
         title: "",
         body: "",
         imageURL: "",
-        community: "",
+        community: id,
         id: new Date().getTime().toString()
     };
     const [newPost, setNewPost] = useState(post);
@@ -34,16 +35,18 @@ export default function PostEditor() {
                     <label htmlFor="imageURL" className="form-label wd-green-yellow wd-secondary-font">Image</label>
                     <input type="text" className="post-field form-control" id="imageURL" value={newPost.imageURL} onChange={(e) => setNewPost({...newPost, imageURL: e.target.value})}/>
                 </div>
-                {/* The community should be selectable from a list of those the user is subscribed to */}
+                {/* The community will be parsed from where it is being posted from */}
                 <div className="mb-3">
                     <label htmlFor="community" className="form-label wd-green-yellow wd-secondary-font">Community</label>
+                    <input type="text" className="post-field form-control" id="community" value={(community || {name: "ERROR"}).name} disabled/>
+                    {/* <label htmlFor="community" className="form-label wd-green-yellow wd-secondary-font">Community</label>
                     <select className="form-select post-field" id="community" value={newPost.community} onChange={(e) => setNewPost({...newPost, community: e.target.value})}>
                         {(user.profileData.memberOf).map((community: any) => (
                             <option key={community} value={community}>{communities.find((c) => c.id === community)?.name}</option>
                         ))}
-                    </select>
+                    </select> */}
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="btn wd-bg-camb-blue">Submit</button>
             </form>
         </div>
     )

@@ -21,7 +21,9 @@ export default function HomeFeed() {
       || memberOf.includes(p.community))).map((p: any) => {return {...p, liked: user?.profileData.likes.includes(p.id)}});
   const subPosts = (posts as Array<any>).filter(
     (p: any) => (memberOf.includes(p.community))).map((p: any) => {return {...p, liked: user?.profileData.likes.includes(p.id)}});
-  const tabs = ["Subscribed", "All"]
+  const followingPosts = (posts as Array<any>).filter(
+    (p: any) => (user?.profileData.following.includes(p.author))).map((p: any) => {return {...p, liked: user?.profileData.likes.includes(p.id)}});
+  const tabs = ["Subscribed", "All", "Following"]
 
   return (
     <div className="flex-grow-1 wd-bg-ebony p-2">
@@ -44,8 +46,9 @@ export default function HomeFeed() {
           {/* Route for the Subscribed tab */}
           <Route path="Subscribed" element={<Feed posts={subPosts} />} />
           {/* Route for the All tab */}
-          
           <Route path="All" element={<Feed posts={allPosts} />} />
+          {/* Route for the Following tab */}
+          <Route path="Following" element={<Feed posts={followingPosts} />} />
         </Routes>
       </div>
     </div>

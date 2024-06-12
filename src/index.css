@@ -17,19 +17,19 @@ code {
     background-color: #595A4A;
 }
 
-.wd-bg-ebony        { background-color: #595A4A; }
-.wd-bg-jet          { background-color: #363635; }
-.wd-bg-green-yellow { background-color: #B0FE76; }
-.wd-bg-light-green  { background-color: #81E979; }
-.wd-bg-camb-blue    { background-color: #8FBB99; }
-.wd-bg-mahogany     { background-color: #C44900; }
+.wd-bg-ebony        { background-color: #595A4A !important; }
+.wd-bg-jet          { background-color: #363635 !important; }
+.wd-bg-green-yellow { background-color: #B0FE76 !important; }
+.wd-bg-light-green  { background-color: #81E979 !important; }
+.wd-bg-camb-blue    { background-color: #8FBB99 !important;}
+.wd-bg-mahogany     { background-color: #C44900 !important; }
 
-.wd-ebony        { color: #595A4A; }
-.wd-jet          { color: #363635; } /* This is the primary color */
-.wd-green-yellow { color: #B0FE76; }
-.wd-light-green  { color: #81E979; }
-.wd-camb-blue    { color: #8FBB99; }
-.wd-mahogany     { color: #C44900; }
+.wd-ebony        { color: #595A4A !important; }
+.wd-jet          { color: #363635 !important; } /* This is the primary color */
+.wd-green-yellow { color: #B0FE76 !important; }
+.wd-light-green  { color: #81E979 !important; }
+.wd-camb-blue    { color: #8FBB99 !important; }
+.wd-mahogany     { color: #C44900 !important; }
 
 .wd-welcome-font {
     font-family: "Poetsen One", sans-serif;

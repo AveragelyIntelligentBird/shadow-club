@@ -6,6 +6,7 @@ import CommunityFeed from "../Circles/CommunityFeed";
 import Circles from "../Circles";
 import ProfileEditor from "../Profile/Editor";
 import Profile from "../Profile";
+import PostEditor from "../Posts/PostEditor";
 
 export default function Cabal() {
     return (
@@ -16,9 +17,10 @@ export default function Cabal() {
                     <Route path="/Profile/:profileId/" element={<Navigate to="Posts"/>}/>
                     <Route path="/Profile/:profileId/Edit/*" element={<ProfileEditor/>}/>
                     <Route path="/Profile/:profileId/*" element={<Profile/>}/>
-                    <Route path="/Feed" element={<HomeFeed/>}/>
+                    <Route path="/Feed/*" element={<HomeFeed/>}/>
                     <Route path="/Circles" element={<Circles/>}/>
-                    <Route path="/Circles" element={<CommunityFeed/>}/>
+                    <Route path="/Circles/:id/New" element={<PostEditor/>}/>
+                    <Route path="/Circles/:id" element={<CommunityFeed/>}/>
                 </Routes>
             </div>
         </div>

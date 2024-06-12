@@ -8,10 +8,7 @@ export default function Feed({ posts }: FeedProps): ReactElement {
           {posts.map((post, index) => (
             <Post
               key={index}
-              title={post.title}
-              body={post.body}
-              imageUrl={post.imageUrl}
-              liked={post.liked}
+              id={post.id}
             />
           ))}
         </div>
@@ -20,6 +17,7 @@ export default function Feed({ posts }: FeedProps): ReactElement {
 
 export type FeedProps = {
     posts: {
+        id: string;
         title: string;
         body: string;
         imageUrl?: string;

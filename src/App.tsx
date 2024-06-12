@@ -7,6 +7,10 @@ import Welcome from "./Welcome"
 import Login from "./Login"
 import Cabal from "./Cabal"
 import './App.css';
+import HomeFeed from './Posts';
+import Circles from './Circles';
+import PostEditor from './Posts/PostEditor';
+import CommunityFeed from './Circles/CommunityFeed';
 
 function App() {
     return (
@@ -17,6 +21,7 @@ function App() {
                         <Route path="/" element={<Navigate to="Welcome"/>}/>
                         <Route path="/Welcome" element={<Welcome/>}/>
                         <Route path="/Login" element={<Login/>}/>
+                        <Route path="/Cabal" element={<Cabal/>}/>
                         <Route path="/:uid/*" element={<Cabal/>}/>
                     </Routes>
                 </div>

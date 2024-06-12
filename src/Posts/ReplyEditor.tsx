@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useParams } from "react-router";
 import { users, communities } from "../Database";
 
-export default function PostEditor() {
+export default function ReplyEditor() {
     const { uid, id } = useParams();
     const user = users.find((user) => user.uid === uid) || {profileData: {memberOf: []}};
     const reply = {
