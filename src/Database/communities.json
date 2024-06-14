@@ -33,5 +33,40 @@
         "description": "A circle about the CIA's mind control experiments.",
         "image": "images/blue.jpg",
         "public": false
+    },
+    {
+        "id": "005",
+        "name": "Cryptozoology International",
+        "description": "A circle for the study of hidden animals.",
+        "image": "images/blue.jpg",
+        "public": true
+    },
+    {
+        "id": "006",
+        "name": "The Untold Story of the Moon Landing",
+        "description": "Hollywood's greatest hoax?",
+        "image": "images/blue.jpg",
+        "public": true
+    },
+    {
+        "id": "007",
+        "name": "The Mandela Effect",
+        "description": "A circle for those who remember things differently.",
+        "image": "images/blue.jpg",
+        "public": true
+    },
+    {
+        "id": "008",
+        "name": "The Bermuda Circle",
+        "description": "A circle about the Bermuda Triangle.",
+        "image": "images/blue.jpg",
+        "public": true
+    },
+    {
+        "id": "009",
+        "name": "Lost Cities of the World",
+        "description": "A circle for the study of ancient civilizations.",
+        "image": "images/blue.jpg",
+        "public": true
     }
 ]

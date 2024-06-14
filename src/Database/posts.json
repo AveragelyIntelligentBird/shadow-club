@@ -7,34 +7,304 @@
     },
     {
         "id": "001",
+        "title": "How many shooters were there?",
+        "body": "Some say there was more than one shooter on that day in Dallas. What do you think?",
+        "community": "000"
+    },
+    {
+        "id": "002",
+        "title": "Lee Harvey Oswald and the CIA",
+        "body": "Was Lee Harvey Oswald a patsy? Some say he was a CIA agent",
+        "community": "000"
+    },
+    {
+        "id": "003",
+        "title": "Jack Ruby and the Mob",
+        "body": "Why did a nightclub owner assasinate an assasin? Some say he was working for the mob.",
+        "community": "000"
+    },
+    {
+        "id": "004",
+        "title": "The LBJ Connection",
+        "body": "What did Lyndon B. Johnson know about the JFK assassination? Some say he was involved.",
+        "imageURL": "https://upload.wikimedia.org/wikipedia/commons/4/4b/LBJ.jpg",
+        "community": "000"
+    },
+    {
+        "id": "005",
         "title": "The Roswell Incident",
         "body": "Was it a weather balloon or something more? Some say the government is hiding the truth from us.",
         "community": "001"
     },
     {
-        "id": "002",
+        "id": "006",
+        "title": "Area 51: Fact or Fiction?",
+        "body": "What really goes on at this top-secret military base? Some say it's a testing ground for alien technology.",
+        "community": "001"
+    },
+    {
+        "id": "007",
+        "title": "Aliens in the Media",
+        "body": "Are aliens being used to distract us from the real issues? Some say the government is using them as a cover-up",
+        "community": "001"
+    },
+    {
+        "id": "008",
+        "title": "Ancient Aliens",
+        "body": "Did extraterrestrials visit Earth in the distant past? Some say they helped shape our history and buildings.",
+        "community": "001"
+    },
+    {
+        "id": "009",
+        "title": "UFOs in the Bible",
+        "body": "Are there references to UFOs in the Bible? Some say the chariots of fire were actually alien spacecraft.",
+        "community": "001"
+    },
+    {
+        "id": "010",
         "title": "What happened to Madeleine McCann?",
         "body": "The 3-year-old disappeared from her hotel room in Portugal in 2007. Some say her parents were involved.",
         "community": "002"
     },
     {
-        "id": "003",
+        "id": "011",
+        "title": "The Dyatlov Pass incident",
+        "body": "What really happened to the hikers in the Ural Mountains in 1959? Some say it was an avalanche, others say it was something more sinister.",
+        "community": "002"
+    },
+    {
+        "id": "012",
+        "title": "The Yuba County Five",
+        "body": "What happened in the cabin to these five young men?",
+        "community": "002"
+    },
+    {
+        "id": "013",
+        "title": "Jack the Ripper: The Royal Conspiracy",
+        "body": "Was the infamous serial killer actually a member of the royal family? Some say he was protected by the crown.",
+        "community": "002"
+    },
+    {
+        "id": "014",
+        "title": "What happened to the crew of the Mary Celeste?",
+        "body": "The ship was found adrift in the Atlantic Ocean in 1872 with no sign of the crew. Some say they were abducted by aliens.",
+        "community": "002"
+    },
+    {
+        "id": "015",
         "title": "The differerent rites of Freemasonry",
         "body": "Some say there are different rites of Freemasonry, each with its own secrets and rituals.",
         "community": "003"
     },
     {
-        "id": "004",
+        "id": "016",
+        "title": "Founding Fathers and Freemasonry",
+        "body": "Some say the founding fathers of the United States were Freemasons who used their influence to shape the country's future.",
+        "community": "003"
+    },
+    {
+        "id": "017",
+        "title": "Freemasons and the Illuminati",
+        "body": "Freemasons have covertly opposed the Illuminati for centuries. Some say they are still fighting to this day.",
+        "community": "003"
+    },
+    {
+        "id": "018",
+        "title": "Prince Hall Freemasonry",
+        "body": "Some say Prince Hall Freemasonry is a separate and distinct organization from traditional Freemasonry.",
+        "community": "003"
+    },
+    {
+        "id": "019",
+        "title": "The Knights Templar and Freemasonry",
+        "body": "Some say the Knights Templar were the original Freemasons, and their secrets have been passed down through the ages.",
+        "community": "003"
+    },
+    {
+        "id": "020",
         "title": "MK Ultra and the UNABOMBER",
         "body": "Was Ted Kaczynski a victim of the CIA's mind control experiments? Some say he was a patsy.",
         "imageURL": "https://upload.wikimedia.org/wikipedia/commons/4/4b/MK_Ultra.jpg",
         "community": "004"
     },
     {
-        "id": "005",
-        "title": "The LBJ Connection",
-        "body": "What did Lyndon B. Johnson know about the JFK assassination? Some say he was involved.",
-        "imageURL": "https://upload.wikimedia.org/wikipedia/commons/4/4b/LBJ.jpg",
-        "community": "000"
+        "id": "021",
+        "title": "The CIA and Mind Control",
+        "body": "MK Ultra was just the tip of the iceberg. Some say the CIA is still experimenting with mind control techniques.",
+        "community": "004"
+    },
+    {
+        "id": "022",
+        "title": "Psychic Spies",
+        "body": "Some say the CIA used psychics to gather intelligence during the Cold War.",
+        "community": "004"
+    },
+    {
+        "id": "023",
+        "title": "Psychedelic Drugs and the CIA",
+        "body": "Some say the CIA used LSD and other drugs to control and manipulate people's minds.",
+        "community": "004"
+    },
+    {
+        "id": "024",
+        "title": "Who signed off on MK Ultra?",
+        "body": "Did the President know about the CIA's mind control experiments?",
+        "community": "004"
+    },
+    {
+        "id": "025",
+        "title": "Bigfoot: Fact or Fiction?",
+        "body": "Was he a missing link or a hoax? Some say he's still out there in the woods.",
+        "community": "005"
+    },
+    {
+        "id": "026",
+        "title": "The Loch Ness Monster",
+        "body": "Is there a prehistoric creature living in the depths of Loch Ness? Some say it's just a legend.",
+        "community": "005"
+    },
+    {
+        "id": "027",
+        "title": "Mothman",
+        "body": "Some say the Mothman is a harbinger of doom, appearing before disasters strike.",
+        "community": "005"
+    },
+    {
+        "id": "028",
+        "title": "The Nephilim",
+        "body": "Were the Nephilim the offspring of angels and humans? Some say they were giants who once roamed the Earth.",
+        "community": "005"
+    },
+    {
+        "id": "029",
+        "title": "Dragons Across the World",
+        "body": "Are dragons just a myth or did they once exist? Every culture has their stories.",
+        "community": "005"
+    },
+    {
+        "id": "030",
+        "title": "Stanley Kubrick and the Moon Landing",
+        "body": "Did the famous director help fake the moon landing? Some say he left clues in his films.",
+        "community": "006"
+    },
+    {
+        "id": "031",
+        "title": "The Eternal Wave",
+        "body": "If there is no wind, why does the flag wave on the moon?",
+        "community": "006"
+    },
+    {
+        "id": "032",
+        "title": "Neil Armstrong's Missing Flag",
+        "body": "Why is there no flag in the photo of Neil Armstrong on the moon? Some say it was left out on purpose.",
+        "community": "006"
+    },
+    {
+        "id": "033",
+        "title": "How did they get there?",
+        "body": "What is a rocket? Does anyone really believe that we went to the moon?",
+        "community": "006"
+    },
+    {
+        "id": "034",
+        "title": "The Van Allen Belt",
+        "body": "How did the astronauts survive the radiation in the Van Allen Belt? Some say it's impossible.",
+        "community": "006"
+    },
+    {
+        "id": "035",
+        "title": "The Fruit of the Loom Logo",
+        "body": "The logo of Fruit of the Loom is a cornucopia. Or is it?",
+        "community": "007"
+    },
+    {
+        "id": "036",
+        "title": "Did Nelson Mandela die in prison?",
+        "body": "Some people remember it that way. Some say it's a false memory.",
+        "community": "007"
+    },
+    {
+        "id": "037",
+        "title": "Pika Pika",
+        "body": "Has Pikachu's tail always had a black tip? Some say it used to be all yellow.",
+        "community": "007"
+    },
+    {
+        "id": "038",
+        "title": "The Berenstain Bears",
+        "body": "Some people remember it as the Berenstein Bears. Some say it's a parallel universe.",
+        "community": "007"
+    },
+    {
+        "id": "039",
+        "title": "The Mandela Effect and the Simulation Theory",
+        "body": "Some say the Mandela Effect is proof that we are living in a simulated reality.",
+        "community": "007"
+    },
+    {
+        "id": "040",
+        "title": "The HMS Atlanta",
+        "body": "The first of many disappearances in the Bermuda Triangle. Some say it was a time warp.",
+        "community": "008"
+    },
+    {
+        "id": "041",
+        "title": "Flight 19",
+        "body": "The five planes that disappeared in the Bermuda Triangle. Some say they were abducted by aliens.",
+        "community": "008"
+    },
+    {
+        "id": "042",
+        "title": "Time Travel in the Bermuda Triangle",
+        "body": "Some say the Bermuda Triangle is a portal to another dimension.",
+        "community": "008"
+    },
+    {
+        "id": "043",
+        "title": "Compass Malfunctions and Magnetic Anomalies",
+        "body": "Is the Bermuda Triangle is a hotbed of magnetic activity that causes compasses to go haywire?",
+        "community": "008"
+    },
+    {
+        "id": "044",
+        "title": "The Bermuda Triangle and the Lost City of Atlantis",
+        "body": "Where is the site of the lost city of Atlantis? Could it be near these equatorial waters?",
+        "community": "008"
+    },
+    {
+        "id": "045",
+        "title": "El Dorado",
+        "body": "The lost city of gold. It's hidden in the Amazon rainforest.",
+        "community": "009"
+    },
+    {
+        "id": "046",
+        "title": "Camelot: Fact or Fiction?",
+        "body": "Was King Arthur a real person? Some say he was a myth created to unite the British people.",
+        "community": "009"
+    },
+    {
+        "id": "047",
+        "title": "Atlantis and the Human Subconscious",
+        "body": "A city lost to time and the waves. Are we drawn to it because it represents our own subconscious?",
+        "community": "009"
+    },
+    {
+        "id": "047",
+        "title": "Atlantis and the Human Subconscious",
+        "body": "A city lost to time and the waves. Are we drawn to it because it represents our own subconscious?",
+        "community": "009"
+    },
+    {
+        "id": "048",
+        "title": "The Lost City of Z",
+        "body": "A legendary city that sparked the scramble for the Americas.",
+        "community": "009"
+    },
+    {
+        "id": "049",
+        "title": "Sodom and Gomorrah",
+        "body": "The cities of sin. Were they destroyed by a vengeful god? Some say it was a natural disaster.",
+        "community": "009"
     }
 ]
