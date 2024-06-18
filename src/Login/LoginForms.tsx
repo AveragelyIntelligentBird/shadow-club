@@ -1,7 +1,12 @@
 import {Link} from "react-router-dom";
 import React from "react";
+import * as client from "./client";
 
 export default function LoginForms() {
+    const handleAnonymousLogin = () => {
+        client.anonymous();
+    }
+
     return (
         <div className="d-flex">
             <div className="flex-fill">
@@ -47,7 +52,7 @@ export default function LoginForms() {
                         {" "}
                     </div>
                     <Link to="/000/Profile/000/">
-                        <button type="submit" className="wd-primary-btn wd-primary-btn-on-hover">
+                        <button type="submit" className="wd-primary-btn wd-primary-btn-on-hover" onClick={()=>handleAnonymousLogin()}>
                             Access {" "}
                         </button>
                     </Link>

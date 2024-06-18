@@ -4,26 +4,28 @@ import { Routes, useLocation, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import Feed from './Feed';
-import { posts, users, communities } from '../Database';
+import * as client from './client';
+import { useSelector } from 'react-redux';
 
-// FeedSelector component with tabs
 export default function HomeFeed() {
-  // Following after Anfisa's work in the Post component
-  const { uid } = useParams();
-    const user =
-        users.find((user) => user.uid === uid);
-    const memberOf = user?.profileData.memberOf || [];
-    console.log(memberOf);
-  const {pathname} = useLocation();
-
-  const allPosts = (posts as Array<any>).filter(
-    (p: any) => ((communities.find((c) => c.id === p.community) || {}).public 
-      || memberOf.includes(p.community))).map((p: any) => {return {...p, liked: user?.profileData.likes.includes(p.id)}});
-  const subPosts = (posts as Array<any>).filter(
-    (p: any) => (memberOf.includes(p.community))).map((p: any) => {return {...p, liked: user?.profileData.likes.includes(p.id)}});
-  const followingPosts = (posts as Array<any>).filter(
-    (p: any) => (user?.profileData.following.includes(p.author))).map((p: any) => {return {...p, liked: user?.profileData.likes.includes(p.id)}});
   const tabs = ["Subscribed", "All", "Following"]
+  const { user } = useSelector((state: any) => state.accountReducer);
+  const [allPosts, setAllPosts] = useState<any[]>([]);
+  const [subPosts, setSubPosts] = useState<any[]>([]);
+  const [followingPosts, setFollowingPosts] = useState<any[]>([]);
+  const { pathname } = useLocation();
+  const fetchPosts = async () => {
+    let all = await client.findAllPosts();
+    // The all tab displays public posts and posts from communities the user is a member of
+    all = all.filter((p: any) => (user?.profileData.memberOf.includes(p.community) || p.public));
+    setAllPosts(all);
+    // The subscribed tab displays posts from communities the user is a member of
+    const sub = all.filter((p: any) => user?.profileData.memberOf.includes(p.community));
+    setSubPosts(sub);
+    // The following tab displays posts from users the user is following (that are public or from communities the user is a member of)
+    const following = all.filter((p: any) => user?.profileData.following.includes(p.author));
+    setFollowingPosts(following);
+};
 
   return (
     <div className="flex-grow-1 wd-bg-ebony p-2">

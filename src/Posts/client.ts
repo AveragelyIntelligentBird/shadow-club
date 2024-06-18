@@ -11,21 +11,32 @@ export const deletePost = async (postId: string) => {
   return response.data;
 };
 
+export const findAllPosts = async () => {
+  const response = await axiosWithCredentials.get(POSTS_API);
+  return response.data;
+};
+
+export const findPostForId = async (postId: string) => {
+  const response = await axiosWithCredentials
+    .get(`${POSTS_API}/${postId}`);
+  return response.data;
+};
+
 export const findPostsForCircle = async (circleId: string) => {
   const response = await axiosWithCredentials
     .get(`${CIRCLES_API}/${circleId}/posts`);
   return response.data;
 };
 
-export const findPostsForUser = async (userId: string) => {
+export const findPostsForProfile = async (profileId: string) => {
   const response = await axiosWithCredentials
-    .get(`${PROFILES_API}/${userId}/posts`);
+    .get(`${PROFILES_API}/${profileId}/posts`);
   return response.data;
 };
 
-export const findLikedPostsForUser = async (userId: string) => {
+export const findLikedPostsForProfile = async (profileId: string) => {
   const response = await axiosWithCredentials
-    .get(`${PROFILES_API}/${userId}/liked`);
+    .get(`${PROFILES_API}/${profileId}/likes`);
   return response.data;
 }
 
@@ -40,5 +51,29 @@ export const updatePost = async (post: any) => {
       .put(`${POSTS_API}/${post._id}`, post);
     return response.data;
 };
+
+// Needed for finding whether the user has liked a post/can delete a post
+export const profile = async () => {
+  const response = await axios.post(`${REMOTE_SERVER}/api/profile`);
+  return response.data;
+};
+
+export const findAuthorForPost = async (postId: string) => {
+  const response = await axiosWithCredentials
+    .get(`${POSTS_API}/${postId}/author`);
+  return response.data;
+};
+
+export const likePost = async (profileId: string, postId: string) => {
+  const response = await axiosWithCredentials
+    .post(`${PROFILES_API}/${profileId}/likes/${postId}`);
+  return response.data;
+}
+
+export const unlikePost = async (profileId: string, postId: string) => {
+  const response = await axiosWithCredentials
+    .delete(`${PROFILES_API}/${profileId}/likes/${postId}`);
+  return response.data;
+}
 
 // We very likely need a function to fetch posts by partial description/title

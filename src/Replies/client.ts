@@ -25,7 +25,7 @@ export const findRepliesForUser = async (userId: string) => {
 
 // Does this need to encode an author and post as well ??
 export const createReply = async (reply: any) => {
-    const response = await axiosWithCredentials.post( `${REPLY_API}/${reply._id}`, reply );
+    const response = await axiosWithCredentials.post( `${REPLY_API}`, reply );
     return response.data;
 };
 

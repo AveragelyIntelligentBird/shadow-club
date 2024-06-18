@@ -35,9 +35,8 @@ export const PROFILES_API = `${REMOTE_SERVER}/api/profiles`;
     return response.data;
   };
 
-  export const createUser = async (profile: any) => {
+  export const createProfile = async (profile: any) => {
     const response = await axios.post(`${PROFILES_API}`, profile);
     return response.data;
   };
-  
   

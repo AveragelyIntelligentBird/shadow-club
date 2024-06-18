@@ -34,18 +34,31 @@ export const findCirclesForModerator = async (moderatorId: string) => {
     return response.data;
 }
 
-export const createCircle = async (circle: any) => {
-    const response = await axiosWithCredentials.post(CIRCLES_API, circle);
+// Needed for finding who is signed in
+export const profile = async () => {
+  const response = await axios.post(`${REMOTE_SERVER}/api/profile`);
+  return response.data;
+};
+
+// get the posts for a circle
+export const findPostsForCircle = async (circleId: string) => {
+    const response = await axiosWithCredentials
+      .get(`${CIRCLES_API}/${circleId}/posts`);
     return response.data;
 };
-export const deleteCircle = async (id: string) => {
-    const response = await axiosWithCredentials.delete(`${CIRCLES_API}/${id}`);
-    return response.data;
-};
-export const updateCircle = async (circle: any) => {
-    const response = await axiosWithCredentials.put(`${CIRCLES_API}/${circle._id}`, circle);
-    return response.data;
-};  
+
+// export const createCircle = async (circle: any) => {
+//     const response = await axiosWithCredentials.post(CIRCLES_API, circle);
+//     return response.data;
+// };
+// export const deleteCircle = async (id: string) => {
+//     const response = await axiosWithCredentials.delete(`${CIRCLES_API}/${id}`);
+//     return response.data;
+// };
+// export const updateCircle = async (circle: any) => {
+//     const response = await axiosWithCredentials.put(`${CIRCLES_API}/${circle._id}`, circle);
+//     return response.data;
+// };  
 
 // We very likely need a function to fetch circles by partial title
 // See profiles for example
