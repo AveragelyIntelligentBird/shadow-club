@@ -1,6 +1,6 @@
 import axios from "axios";
 const axiosWithCredentials = axios.create({ withCredentials: true });
-const REMOTE_SERVER = process.env.REACT_APP_REMOTE_SERVER;
+const REMOTE_SERVER = process.env.REACT_APP_REMOTE_SERVER || "http://localhost:4000";
 const POSTS_API = `${REMOTE_SERVER}/api/posts`;
 const CIRCLES_API = `${REMOTE_SERVER}/api/circles`;
 const PROFILES_API = `${REMOTE_SERVER}/api/profiles`;

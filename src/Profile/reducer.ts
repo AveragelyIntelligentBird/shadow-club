@@ -33,7 +33,7 @@ const profilesSlice = createSlice({
                     }}
                 } else if (p.uid === uids.userId) {
                     return {...p, profileData: {...p.profileData,
-                            following: p.profileData.following.filter((f) => f != uids.profileId)
+                            following: p.profileData.following.filter((f) => f !== uids.profileId)
                     }}
                 } else {
                     return p

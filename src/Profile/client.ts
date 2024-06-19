@@ -1,6 +1,6 @@
 import axios from "axios";
-// Use credentials ???
-export const REMOTE_SERVER = process.env.REACT_APP_REMOTE_SERVER;
+const axiosWithCredentials = axios.create({ withCredentials: true });
+export const REMOTE_SERVER = process.env.REACT_APP_REMOTE_SERVER || "http://localhost:4000";
 export const PROFILES_API = `${REMOTE_SERVER}/api/profiles`;
 
   export const findAllProfiles = async () => {

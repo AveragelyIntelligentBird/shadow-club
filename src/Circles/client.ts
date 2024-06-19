@@ -37,6 +37,7 @@ export const findCirclesForModerator = async (moderatorId: string) => {
 // Needed for finding who is signed in
 export const profile = async () => {
   const response = await axios.post(`${REMOTE_SERVER}/api/profile`);
+  console.log("profile", response.data)
   return response.data;
 };
 

@@ -26,6 +26,9 @@ export default function HomeFeed() {
     const following = all.filter((p: any) => user?.profileData.following.includes(p.author));
     setFollowingPosts(following);
 };
+  React.useEffect(() => {
+    fetchPosts();
+  }, []);
 
   return (
     <div className="flex-grow-1 wd-bg-ebony p-2">
