@@ -4,7 +4,7 @@ import {useParams} from "react-router";
 import {Link} from "react-router-dom";
 import {GrEdit} from "react-icons/gr";
 import {BsEyeFill} from "react-icons/bs";
-import {followProfile, unfollowProfile} from "./ProfileReducer";
+import {followProfile, unfollowProfile} from "./reducer";
 import {RiEyeCloseLine} from "react-icons/ri";
 
 export default function ProfileCard(

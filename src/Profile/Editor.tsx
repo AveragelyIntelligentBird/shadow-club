@@ -1,7 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate, useParams} from "react-router";
 import React, { useState } from "react";
-import {updateProfile} from "./ProfileReducer";
+import {updateProfile} from "./reducer";
 import EditorNav from "./EditorNav";
 import NotFound from "../NotFound";
 import {Link, Route, Routes} from "react-router-dom";

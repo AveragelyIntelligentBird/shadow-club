@@ -2,14 +2,17 @@
 // Posts have a title, body, and optional image
 // They also have a community id, which is required
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { users, communities } from "../Database";
+import * as client from './client';
+import * as circleClient  from '../Circles/client';
+// import { users, communities } from "../Database";
 
 export default function PostEditor() {
+    // get the id of the community from the url
     const { id } = useParams();
-    const community = communities.find((community) => community.id === id);
-    // const user = users.find((user) => user.uid === uid) || {profileData: {memberOf: []}};
+    // Need to get user from redux
+    // const { user } = useSelector((state: any) => state.accountReducer);
     const post = {
         title: "",
         body: "",
@@ -18,6 +21,18 @@ export default function PostEditor() {
         id: new Date().getTime().toString()
     };
     const [newPost, setNewPost] = useState(post);
+    const [circle, setCircle] = useState<any>();
+    const fetchCircle = async () => {
+        const circle = await circleClient.findCircleForId(id || "");
+        setCircle(circle);
+    }
+    const submitPost = async () => {
+        await client.createPost(id || "", newPost);
+    }
+    useEffect(() => {
+        fetchCircle();
+    }, []);
+    if (!circle) return null;
     return (
         <div className="border border-3 p-2 rounded-2">
             <h2 className="wd-green-yellow wd-primary-font">Create a new post</h2>
@@ -38,7 +53,7 @@ export default function PostEditor() {
                 {/* The community will be parsed from where it is being posted from */}
                 <div className="mb-3">
                     <label htmlFor="community" className="form-label wd-green-yellow wd-secondary-font">Community</label>
-                    <input type="text" className="post-field form-control" id="community" value={(community || {name: "ERROR"}).name} disabled/>
+                    <input type="text" className="post-field form-control" id="community" value={(circle.name || {name: "ERROR"}).name} disabled/>
                     {/* <label htmlFor="community" className="form-label wd-green-yellow wd-secondary-font">Community</label>
                     <select className="form-select post-field" id="community" value={newPost.community} onChange={(e) => setNewPost({...newPost, community: e.target.value})}>
                         {(user.profileData.memberOf).map((community: any) => (
@@ -46,7 +61,7 @@ export default function PostEditor() {
                         ))}
                     </select> */}
                 </div>
-                <button type="submit" className="btn wd-bg-camb-blue">Submit</button>
+                <button type="submit" className="btn wd-bg-camb-blue" onClick={()=> submitPost}>Submit</button>
             </form>
         </div>
     )

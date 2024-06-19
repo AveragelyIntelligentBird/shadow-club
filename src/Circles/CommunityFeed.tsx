@@ -1,26 +1,42 @@
-import React, { ReactElement } from 'react';
-import { communities, posts, users } from '../Database';
+import React, { ReactElement, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import CommunityHeader from './CommunityHeader';
 import Feed from '../Posts/Feed';
+import * as client from './client';
+import { useSelector } from 'react-redux';
 
 export default function CommunityFeed(): ReactElement {
+    // get the id of the community from the url
     const { id } = useParams();
-    const community = communities.find((community) => community.id === id);
-    // const user = users.find((user) => user.uid === uid);
+    const [circle, setCircle] = useState<any>();
+    const [posts, setPosts] = useState<any[]>([]);
+    const { user } = useSelector((state: any) => state.accountReducer);
 
-    const communityPosts = posts.filter((post) => post.community === id).map((p) => {return {...p, liked: false /* user?.profileData.likes.includes(p.id) */}});
+    const fetchCircle = async () => {
+      const circle = await client.findCircleForId(id || "");
+      setCircle(circle);
+    };
+    const fetchPosts = async () => {
+      const posts = await client.findPostsForCircle(id || "");
+      setPosts(posts);
+    };
+    // Use a useEffect to load the circles on the first render
+    useEffect(() => {
+      fetchCircle();
+      fetchPosts();
+    }, []);
+
     return (
       <div id="community-feed" className='wd-bg-ebony'>
         <div className='pb-2'>
           <CommunityHeader 
-            cid={community?.id || "0"}
-            name={community?.name || ""}
-            description={community?.description || ""}
-            bannerImage={community?.image || ""}/>
+            cid={id || "0"}
+            name={circle?.name || ""}
+            description={circle?.description || ""}
+            bannerImage={circle?.image || ""}/>
         </div>
         {/* Only display feed of posts if user is a community member*/}
-        {/* (user?.profileData.memberOf.includes(id || '') || community?.public)&& */ <Feed posts={communityPosts}/> }
+        {(circle?.public || (user && user?.profileData.memberOf.includes(id || ''))) &&  <Feed posts={posts}/> }
       </div>
     );
 }

@@ -11,21 +11,24 @@ import HomeFeed from './Posts';
 import Circles from './Circles';
 import PostEditor from './Posts/PostEditor';
 import CommunityFeed from './Circles/CommunityFeed';
+import Session from './Login/Session';
 
 function App() {
     return (
         <Provider store={store}>
-            <HashRouter>
-                <div className="main-container d-flex">
-                    <Routes>
-                        <Route path="/" element={<Navigate to="Welcome"/>}/>
-                        <Route path="/Welcome" element={<Welcome/>}/>
-                        <Route path="/Login" element={<Login/>}/>
-                        <Route path="/Cabal" element={<Cabal/>}/>
-                        <Route path="/:uid/*" element={<Cabal/>}/>
-                    </Routes>
-                </div>
-            </HashRouter>
+            <Session>
+                <HashRouter>
+                    <div className="main-container d-flex">
+                        <Routes>
+                            <Route path="/" element={<Navigate to="Welcome"/>}/>
+                            <Route path="/Welcome" element={<Welcome/>}/>
+                            <Route path="/Login" element={<Login/>}/>
+                            <Route path="/Cabal" element={<Cabal/>}/>
+                            <Route path="/:uid/*" element={<Cabal/>}/>
+                        </Routes>
+                    </div>
+                </HashRouter>
+            </Session>
         </Provider>
     );
 }

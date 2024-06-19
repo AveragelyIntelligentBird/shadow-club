@@ -8,7 +8,7 @@ import { GrEdit } from "react-icons/gr";
 import {GiHoodedFigure} from "react-icons/gi";
 import {BsEyeFill} from "react-icons/bs";
 import {RiEyeCloseLine} from "react-icons/ri";
-import {followProfile, unfollowProfile} from "./ProfileReducer";
+import {followProfile, unfollowProfile} from "./reducer";
 import ProfileCard from "./ProfileCard";
 import Affiliations from "./Affiliations";
 
