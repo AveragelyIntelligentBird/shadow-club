@@ -28,7 +28,7 @@ export default function CommunityHeader({ cid, name, description, bannerImage }:
       <div className="pt-2">
         <h1 className="wd-green-yellow wd-primary-font">
             {name + "   "}
-            {currentUser.role !== "anonymous" &&
+            {currentUser &&
                 (currentUser?.circles.includes(cid) ? (
                     <button type="button" className="btn rounded-pill btn-sm wd-btn-secondary">Leave <FaTimes/></button>
                 ) : (
@@ -37,7 +37,7 @@ export default function CommunityHeader({ cid, name, description, bannerImage }:
         </h1>
       </div>
       <p className="wd-green-yellow wd-secondary-font">{description}</p>
-        {id &&
+        {id && currentUser &&
         <Link to={`${location.pathname}/New`} className="text-decoration-none" >
             <button type="button" className="btn rounded-pill btn-sm wd-btn-secondary">Post</button> 
         </Link>

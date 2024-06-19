@@ -36,7 +36,7 @@ export default function CommunityFeed(): ReactElement {
             bannerImage={circle?.image || ""}/>
         </div>
         {/* Only display feed of posts if user is a community member*/}
-        {(user?.profileData.memberOf.includes(id || '') || circle?.public) &&  <Feed posts={posts}/> }
+        {(circle?.public || (user && user?.profileData.memberOf.includes(id || ''))) &&  <Feed posts={posts}/> }
       </div>
     );
 }

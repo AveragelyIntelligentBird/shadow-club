@@ -11,7 +11,8 @@ import * as circleClient  from '../Circles/client';
 export default function PostEditor() {
     // get the id of the community from the url
     const { id } = useParams();
-    // const user = users.find((user) => user.uid === uid) || {profileData: {memberOf: []}};
+    // Need to get user from redux
+    // const { user } = useSelector((state: any) => state.accountReducer);
     const post = {
         title: "",
         body: "",

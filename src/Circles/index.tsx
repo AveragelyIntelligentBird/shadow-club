@@ -22,7 +22,7 @@ export default function Circles(): ReactElement {
             {circles.map((circle) => (
                 <div key={circle._id} className='community-list-item'>
                     <CommunityHeader
-                        cid={circle.id}
+                        cid={circle._id}
                         name={circle.name}
                         description={circle.description}
                         bannerImage={circle.image}

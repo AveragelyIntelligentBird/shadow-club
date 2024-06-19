@@ -76,4 +76,8 @@ export const unlikePost = async (profileId: string, postId: string) => {
   return response.data;
 }
 
+export const findPublicPosts = async () => {
+  const response = await axiosWithCredentials.get(`${POSTS_API}/public`);
+  return response.data;
+}
 // We very likely need a function to fetch posts by partial description/title

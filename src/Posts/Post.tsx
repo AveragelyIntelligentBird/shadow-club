@@ -24,9 +24,9 @@ export default function Post({id }: PostProps)  {
     fetchPost();
   }, []);
 
-  if (!user) return null;
   if (!post) return null;
-  const liked = user.profileData.likedPosts.includes(id);
+  // May be fucky
+  const liked = user && user.profileData.likedPosts.includes(id);
   const likePost = async () => {
     if (liked) {
       await client.unlikePost(user._id, id);
@@ -44,8 +44,8 @@ export default function Post({id }: PostProps)  {
       {post.imageURL && <img src={post.imageURL} alt="" className="post-image" />}
       <p className="post-body">{post.body}</p>
       <div className="post-actions">
-        {user.role !== "anonymous" && <button className="reply-button">Reply <RiReplyLine/></button>}
-        {user.role !== <button className="like-button" onClick={() => likePost()}>
+        {user && <button className="reply-button">Reply <RiReplyLine/></button>}
+        {user && <button className="like-button" onClick={() => likePost()}>
           {liked ? <RiHeartFill/> : <RiHeartLine/>}
         </button>}
       </div>
