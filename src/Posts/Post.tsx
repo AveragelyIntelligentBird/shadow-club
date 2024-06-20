@@ -43,7 +43,7 @@ export default function Post({id }: PostProps)  {
     <div className="post">
       <div className="d-flex">
         <h2 className="post-title">{post.title}</h2>
-        {author && <Link to={`/Cabal/Profile/${author._id}/Posts`} className="post-author"> {author.username}</Link>}
+        {author && <Link to={`/Cabal/Profile/${author._id}`} className="post-author"> {author.username}</Link>}
       </div>
       {/* Maybe add styling?? */}
       <Link to={`/Cabal/Circles/${post.circle}`} className="post-community"> {circle.name}</Link>
