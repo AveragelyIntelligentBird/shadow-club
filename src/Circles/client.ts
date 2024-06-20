@@ -48,6 +48,12 @@ export const findPostsForCircle = async (circleId: string) => {
     return response.data;
 };
 
+export const findModeratorsForCircle = async (circleId: string) => {
+    const response = await axiosWithCredentials
+      .get(`${CIRCLES_API}/${circleId}/moderators`);
+    return response.data;
+}
+
 // export const createCircle = async (circle: any) => {
 //     const response = await axiosWithCredentials.post(CIRCLES_API, circle);
 //     return response.data;
