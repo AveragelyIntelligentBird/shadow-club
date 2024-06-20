@@ -77,6 +77,7 @@ export default function HomeFeed() {
           {/* Route for the Subscribed tab */}
           {user && <Route path="Subscribed" element={<Feed posts={subPosts} />} />}
           {/* Route for the All tab */}
+          {!user && <Route path="/" element={<Feed posts={allPosts} />}/>}
           <Route path="All" element={<Feed posts={allPosts} />} />
           {/* Route for the Following tab */}
           {user && <Route path="Following" element={<Feed posts={followingPosts} />} />}

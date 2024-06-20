@@ -61,6 +61,7 @@ export const profile = async () => {
 export const findAuthorForPost = async (postId: string) => {
   const response = await axiosWithCredentials
     .get(`${POSTS_API}/${postId}/author`);
+  // console.log(postId);
   return response.data;
 };
 

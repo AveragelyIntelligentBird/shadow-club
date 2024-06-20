@@ -26,6 +26,7 @@ export default function Circles(): ReactElement {
                         name={circle.name}
                         description={circle.description}
                         bannerImage={circle.image}
+                        visibility={circle.public}
                     />
                 </div>
             ))}
