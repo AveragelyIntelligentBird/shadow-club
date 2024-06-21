@@ -5,7 +5,7 @@ import {updateProfile} from "./reducer";
 import EditorNav from "./EditorNav";
 import NotFound from "../NotFound";
 import {Link, Route, Routes} from "react-router-dom";
-import EditorProfileData from "./EditorProfile";
+import Editor from "./EditorProfile";
 import EditorSensitive from "./EditorSensitive";
 import EditorLogin from "./EditorLogin";
 
@@ -30,7 +30,7 @@ export default function ProfileEditor() {
                     <div className="wd-vert-divider mx-5"/>
                     <div className="d-flex flex-fill flex-column pb-2">
                         <Routes>
-                            <Route path="Profile" element={<EditorProfileData profile={profile} setProfile={setProfile}/>}/>
+                            <Route path="Profile" element={<Editor profile={profile} setProfile={setProfile}/>}/>
                             <Route path="Sensitive" element={<EditorSensitive profile={profile} setProfile={setProfile}/>}/>
                             <Route path="Login" element={<EditorLogin profile={profile} setProfile={setProfile}/>}/>
                         </Routes>

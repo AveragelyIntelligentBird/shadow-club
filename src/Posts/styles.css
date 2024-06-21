@@ -149,3 +149,15 @@
   .tab:not(.selected):hover {
     background-color: #627366; /* Optional: slightly darker on hover */
   }
+
+  .wd-elite-border {
+    border: solid 3px #B0FE76;
+  }
+
+  .wd-moderator-border {
+    border: solid 3px #C44900;
+  }
+
+  .wd-overseer-border {
+    border: solid 3px #bf32f5;
+  }

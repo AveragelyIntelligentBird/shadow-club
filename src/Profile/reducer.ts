@@ -15,30 +15,30 @@ const profilesSlice = createSlice({
             );
         },
         followProfile: (state, {payload: uids}) => {
-            state.profiles = state.profiles.map((p) => {
-                if (p.uid === uids.profileId) {
-                    return {...p, profileData: {...p.profileData, followers: [...p.profileData.followers, uids.userId]}}
-                } else if (p.uid === uids.userId) {
-                    return {...p, profileData: {...p.profileData, following: [...p.profileData.following, uids.profileId]}}
-                } else {
-                    return p
-                }
-            });
+            // state.profiles = state.profiles.map((p) => {
+            //     if (p.uid === uids.profileId) {
+            //         return {...p, followers: [...p.followers, uids.userId]}
+            //     } else if (p.uid === uids.userId) {
+            //         return {...p, following: [...p.following, uids.profileId]}}
+            //     } else {
+            //         return p;
+            //     }
+            // });
         },
         unfollowProfile: (state, {payload: uids}) => {
-            state.profiles = state.profiles.map((p) => {
-                if (p.uid === uids.profileId) {
-                    return {...p, profileData: {...p.profileData,
-                            followers: p.profileData.followers.filter((f) => f !== uids.userId)
-                    }}
-                } else if (p.uid === uids.userId) {
-                    return {...p, profileData: {...p.profileData,
-                            following: p.profileData.following.filter((f) => f !== uids.profileId)
-                    }}
-                } else {
-                    return p
-                }
-            });
+            // state.profiles = state.profiles.map((p) => {
+            //     if (p.uid === uids.profileId) {
+            //         return {...p, : {...p.,
+            //                 followers: p..followers.filter((f) => f !== uids.userId)
+            //         }}
+            //     } else if (p.uid === uids.userId) {
+            //         return {...p, : {...p.,
+            //                 following: p.following.filter((f) => f !== uids.profileId)
+            //         }}
+            //     } else {
+            //         return p
+            //     }
+            // });
         }
     },
 

@@ -43,7 +43,7 @@ export default function CommunityFeed(): ReactElement {
             visibility={circle?.public || false}/>
         </div>
         {/* Only display feed of posts if user is a community member*/}
-        {(circle?.public || (user && user?.profileData.memberOf.includes(id || ''))) 
+        {(circle?.public || (user && user?.memberOf.includes(id || ''))) 
           ?  <Feed posts={posts}/> 
           : <div className='private-message'>
               <h2 className='private-message-title'> 

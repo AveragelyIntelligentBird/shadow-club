@@ -31,7 +31,7 @@ export default function Post({id }: PostProps)  {
 
   if (!post) return null;
   // May be fucky
-  const liked = user && user.profileData.likedPosts.includes(id);
+  const liked = user && user.likedPosts.includes(id);
   const likePost = async () => {
     if (liked) {
       await client.unlikePost(user._id, id);
@@ -43,8 +43,14 @@ export default function Post({id }: PostProps)  {
   const deletePost = async () => {
     await client.deletePost(id);
   }
+  // overseer user
   return (
-    <div className="post">
+    // We need to set the border based on the author's role and wether they are a mod of the post's community
+    <div className={!author ? "post" :  
+                    author.role === "premium" ? "post wd-elite-border" :
+                    author.role === "overseer" ? "post wd-overseer-border" :
+                    author.moderatorOf.find((c: any) => {return c === circle._id}) ? "post wd-moderator-border" :
+                    author.role === "user" ? "post" : "post"}>
       <div className="d-flex">
         <h2 className="post-title">{post.title}</h2>
         {author && <Link to={`/Cabal/Profile/${author._id}`} className="post-author"> {author.username}</Link>}

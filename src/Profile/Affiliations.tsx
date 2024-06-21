@@ -7,19 +7,19 @@ export default function Affiliations (
 {
     const { uid } = useParams();
     const profileCircles =
-        profile.profileData.memberOf.map(
+        profile.memberOf.map(
             (circleId: any) => (
                 communities.find((community: any) => community.id === circleId)
             )
         );
     const profileFollowers =
-        profile.profileData.followers.map(
+        profile.followers.map(
             (userId: any) => (
                 users.find((user: any) => user.uid === userId)
             )
         );
     const profileFollowing =
-        profile.profileData.following.map(
+        profile.following.map(
             (userId: any) => (
                 users.find((user: any) => user.uid === userId)
             )
@@ -57,7 +57,7 @@ export default function Affiliations (
                             <div id="wd-following-card"
                                  className="d-flex align-items-center wd-secondary-font fs-5 mb-2"
                             >
-                                <img src={userFollowing.profileData.avatar}
+                                <img src={userFollowing.avatar}
                                      className="wd-other-user-pic"
                                      alt="User avatar picture"
                                 />
@@ -75,7 +75,7 @@ export default function Affiliations (
                             <div id="wd-following-card"
                                  className="d-flex align-items-center wd-secondary-font fs-5 mb-2"
                             >
-                                <img src={userFollower.profileData.avatar}
+                                <img src={userFollower.avatar}
                                      className="wd-other-user-pic"
                                      alt="User avatar picture"
                                 />

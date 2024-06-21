@@ -59,7 +59,7 @@ export default function PostEditor() {
                     <input type="text" className="post-field form-control" id="community" value={(circle.name || {name: "ERROR"}).name} disabled/>
                     {/* <label htmlFor="community" className="form-label wd-green-yellow wd-secondary-font">Community</label>
                     <select className="form-select post-field" id="community" value={newPost.community} onChange={(e) => setNewPost({...newPost, community: e.target.value})}>
-                        {(user.profileData.memberOf).map((community: any) => (
+                        {(user..memberOf).map((community: any) => (
                             <option key={community} value={community}>{communities.find((c) => c.id === community)?.name}</option>
                         ))}
                     </select> */}

@@ -2,7 +2,7 @@ import {updateProfile} from "./reducer";
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router";
 
-export default function EditorProfileData(
+export default function Editor(
     {profile, setProfile }: { profile: any; setProfile: (course: any) => void; }
 ) {
     return (
@@ -30,13 +30,13 @@ export default function EditorProfileData(
                 <textarea
                     id="wd-bio" rows={2}
                     className="form-control wd-input-field-format"
-                    value={profile.profileData.bio}
+                    value={profile.bio}
                     onChange={(e) =>
                         setProfile({
                             ...profile,
-                            profileData: {...profile.profileData, bio: e.target.value},
-                            hasChanged: true
-                        })
+                            bio: e.target.value,
+                            hasChanged: true}
+                        )
                     }
                 />
                 <label htmlFor="wd-mbti-input" className="col-form-label">
@@ -47,11 +47,11 @@ export default function EditorProfileData(
                         type="text"
                         className="form-control wd-input-field-format"
                         id="wd-mbti-input"
-                        value={profile.profileData.MBTI}
+                        value={profile.MBTI}
                         onChange={(e) =>
                             setProfile({
                                 ...profile,
-                                profileData: {...profile.profileData, MBTI: e.target.value},
+                                MBTI: e.target.value,
                                 hasChanged: true
                             })
                         }
@@ -65,11 +65,11 @@ export default function EditorProfileData(
                         type="text"
                         className="form-control wd-input-field-format"
                         id="wd-star-sign-input"
-                        value={profile.profileData.starSign}
+                        value={profile.starSign}
                         onChange={(e) =>
                             setProfile({
                                 ...profile,
-                                profileData: {...profile.profileData, starSign: e.target.value},
+                                starSign: e.target.value,
                                 hasChanged: true
                             })
                         }
@@ -84,11 +84,11 @@ export default function EditorProfileData(
                     type="text"
                     className="form-control wd-input-field-format"
                     id="wd-avatar-path"
-                    value={profile.profileData.avatar}
+                    value={profile.avatar}
                     onChange={(e) =>
                         setProfile({
                             ...profile,
-                            profileData: {...profile.profileData, avatar: e.target.value},
+                            profile, avatar: e.target.value,
                             hasChanged: true
                         })
                     }
@@ -97,7 +97,7 @@ export default function EditorProfileData(
                     Preview
                 </label>
                 <img
-                    src={profile.profileData.avatar}
+                    src={profile.avatar}
                     alt="Profile"
                     className="wd-profile-pic-editor align-self-center"
                 />

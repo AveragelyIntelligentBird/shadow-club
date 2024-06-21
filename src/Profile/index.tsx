@@ -47,7 +47,7 @@ export default function Profile() {
                     <div id="profile-tab-content" className="me-4 mt-3 rounded-2">
                         <Routes>
                             <Route path="Posts" element={
-                                profile.profileData.posts.map(
+                                profile.posts.map(
                                     (post: any) => (
                                         <div className="wd-default-card wd-secondary-font mb-2 p-3">
                                             Post {post}
@@ -56,7 +56,7 @@ export default function Profile() {
                                 )
                             }/>
                             <Route path="Replies" element={
-                                profile.profileData.replies.map(
+                                profile.replies.map(
                                     (reply: any) => (
                                         <div className="wd-default-card wd-secondary-font mb-2 p-3">
                                             Reply {reply}

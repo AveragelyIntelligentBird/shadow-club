@@ -21,13 +21,13 @@ export default function HomeFeed() {
       // use the publicPosts list to add a public field to each object in all
       all = all.map((p: any) => ({...p, public: publicPosts.includes(p._id)}));
       // The all tab displays public posts and posts from communities the user is a member of
-      all = all.filter((p: any) => (user?.profileData.memberOf.includes(p.community) || p.public ));
+      all = all.filter((p: any) => (user?.memberOf.includes(p.community) || p.public ));
       setAllPosts(all);
       // The subscribed tab displays posts from communities the user is a member of
-      const sub = all.filter((p: any) => user?.profileData.memberOf.includes(p.community));
+      const sub = all.filter((p: any) => user?.memberOf.includes(p.community));
       setSubPosts(sub);
       // The following tab displays posts from users the user is following (that are public or from communities the user is a member of)
-      const following = all.filter((p: any) => user?.profileData.following.includes(p.author));
+      const following = all.filter((p: any) => user?.following.includes(p.author));
       setFollowingPosts(following);
     }
     else {

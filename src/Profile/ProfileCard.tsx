@@ -27,7 +27,7 @@ export default function ProfileCard(
                     </Link>
                 }
                 {
-                    !isThisUser && ((profile.profileData.followers.includes(uid))
+                    !isThisUser && ((profile.followers.includes(uid))
                         ?
                         <BsEyeFill
                             className="fs-2 ms-2 wd-camb-blue wd-color-on-hover"
@@ -41,18 +41,18 @@ export default function ProfileCard(
                 }
             </div>
             <div className="d-flex justify-content-center">
-                <img src={profile.profileData.avatar}
+                <img src={profile.avatar}
                      className="wd-profile-pic"
                      alt="avatar pfp"
                 />
             </div>
             <div className="wd-green-yellow wd-secondary-font mt-3">
-                {profile.profileData.bio} <br/><br/>
-                {profile.profileData.MBTI},  {profile.profileData.starSign}
+                {profile.bio} <br/><br/>
+                {profile.MBTI},  {profile.starSign}
             </div>
             <div className="wd-hor-divider"></div>
             <div className="wd-green-yellow wd-secondary-font">
-                Joined {profile.profileData.memberSince}
+                Joined {profile.memberSince}
             </div>
         </div>
     );
