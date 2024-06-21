@@ -3,7 +3,7 @@ const axiosWithCredentials = axios.create({ withCredentials: true });
 const REMOTE_SERVER = process.env.REACT_APP_REMOTE_SERVER;
 const POSTS_API = `${REMOTE_SERVER}/api/posts`;
 const REPLY_API = `${REMOTE_SERVER}/api/replies`;
-const USERS_API = `${REMOTE_SERVER}/api/users`;
+const USERS_API = `${REMOTE_SERVER}/api/profiles`;
 
 export const deleteReply = async (replyId: string) => {
   const response = await axiosWithCredentials
@@ -44,5 +44,11 @@ export const findReplyForId = async (replyId: string) => {
 export const findAuthorForReply = async (replyId: string) => {
     const response = await axiosWithCredentials
       .get(`${REPLY_API}/${replyId}/author`);
+    return response.data;
+}
+
+export const addReplyToProfile = async (profileId: string, replyId: string) => {
+    const response = await axiosWithCredentials
+      .put(`${USERS_API}/${profileId}/replies/${replyId}`);
     return response.data;
 }

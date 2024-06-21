@@ -8,6 +8,7 @@ import ProfileEditor from "../Profile/Editor";
 import Profile from "../Profile";
 import PostEditor from "../Posts/PostEditor";
 import PostReplies from "../Posts/PostReplies";
+import ReplyEditor from "../Replies/ReplyEditor";
 
 export default function Cabal() {
     return (
@@ -21,6 +22,7 @@ export default function Cabal() {
                     <Route path="/Feed/*" element={<HomeFeed/>}/>
                     <Route path="/Circles" element={<Circles/>}/>
                     <Route path="/Post/:pid" element={<PostReplies/>}/>
+                    <Route path="/Post/:pid/New" element={<ReplyEditor/>}/>
                     <Route path="/Circles/:id/New" element={<PostEditor/>}/>
                     <Route path="/Circles/:id" element={<CommunityFeed/>}/>
                 </Routes>

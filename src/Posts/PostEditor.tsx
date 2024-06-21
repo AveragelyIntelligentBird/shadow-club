@@ -8,6 +8,7 @@ import * as client from './client';
 import * as circleClient  from '../Circles/client';
 import * as profileClient from '../Profile/client';
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 // import { users, communities } from "../Database";
 
 export default function PostEditor() {
@@ -34,7 +35,7 @@ export default function PostEditor() {
         fetchCircle();
     }, []);
     if (!circle) return null;
-    if (!user) return null;
+    if (!user) return <Link className="wd-green-yellow wd-bg-jet" to="/Login">Login to reply</Link>
     return (
         <div className="border border-3 p-2 rounded-2">
             <h2 className="wd-green-yellow wd-primary-font">Create a new post</h2>
@@ -63,7 +64,10 @@ export default function PostEditor() {
                         ))}
                     </select> */}
                 </div>
-                <button type="submit" className="btn wd-bg-camb-blue" onClick={()=> submitPost}>Submit</button>
+                <Link to={`/Cabal/Post/${id}`} className="btn btn-secondary">Cancel</Link>
+                <Link to={`/Cabal/Post/${id}`}>
+                    <button type="submit" className="btn wd-bg-camb-blue" onClick={()=> submitPost()}>Submit</button>
+                </Link>
             </form>
         </div>
     )
