@@ -6,19 +6,20 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import * as client from './client';
 import * as circleClient  from '../Circles/client';
+import * as profileClient from '../Profile/client';
+import { useSelector } from "react-redux";
 // import { users, communities } from "../Database";
 
 export default function PostEditor() {
     // get the id of the community from the url
     const { id } = useParams();
     // Need to get user from redux
-    // const { user } = useSelector((state: any) => state.accountReducer);
+    const { user } = useSelector((state: any) => state.accountReducer);
     const post = {
         title: "",
         body: "",
         imageURL: "",
-        community: id,
-        id: new Date().getTime().toString()
+        community: id
     };
     const [newPost, setNewPost] = useState(post);
     const [circle, setCircle] = useState<any>();
@@ -27,12 +28,13 @@ export default function PostEditor() {
         setCircle(circle);
     }
     const submitPost = async () => {
-        await client.createPost(id || "", newPost);
+        await client.createPost(id || "", newPost).then(p => {client.addPostToProfile(user._id, p._id)});
     }
     useEffect(() => {
         fetchCircle();
     }, []);
     if (!circle) return null;
+    if (!user) return null;
     return (
         <div className="border border-3 p-2 rounded-2">
             <h2 className="wd-green-yellow wd-primary-font">Create a new post</h2>

@@ -2,6 +2,7 @@ import "./styles.css";
 import React, { ReactElement } from 'react';
 // import { users, posts } from '../Database';
 import { RiHeartFill, RiHeartLine, RiReplyLine } from "react-icons/ri";
+import { FaCommentDots } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import * as client from './client';
@@ -50,6 +51,9 @@ export default function Post({id }: PostProps)  {
       {post.imageURL && <img src={post.imageURL} alt="" className="post-image" />}
       <p className="post-body">{post.body}</p>
       <div className="post-actions">
+        <Link to={`/Cabal/Post/${id}`} className="post-author">
+          <button className="comment-button">Comments <FaCommentDots/></button>
+        </Link>
         {user && <button className="reply-button">Reply <RiReplyLine/></button>}
         {user && <button className="like-button" onClick={() => likePost()}>
           {liked ? <RiHeartFill/> : <RiHeartLine/>}

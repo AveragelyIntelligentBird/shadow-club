@@ -14,7 +14,7 @@
     /* font-family: 'YourSecondaryFontFamily', sans-serif;  Replace with actual secondary font */
     margin-bottom: 0.5rem; /* Bootstrap's mb-2 class is typically 0.5rem */
     padding: 1rem; /* Bootstrap's p-3 class is typically 1rem */
-}
+  }
   
   .post-title {
     font-size: 24px;
@@ -80,6 +80,20 @@
     font-size: 16px;
     cursor: pointer;
     color: #8faf96;
+  }
+
+  .comment-button {
+    background-color: #8faf96;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #343a40;
+    /* Round the corners */
+    border-radius: 1rem;
+  }
+
+  .comment-button:hover {
+    background-color: #627366;
   }
   
   .reply-button:hover,

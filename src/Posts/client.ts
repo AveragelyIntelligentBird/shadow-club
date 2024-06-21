@@ -81,4 +81,10 @@ export const findPublicPosts = async () => {
   const response = await axiosWithCredentials.get(`${POSTS_API}/public`);
   return response.data;
 }
+
+export const addPostToProfile = async (profileId: string, postId: string) => {
+  const response = await axiosWithCredentials
+    .post(`${PROFILES_API}/${profileId}/posts/${postId}`);
+  return response.data;
+}
 // We very likely need a function to fetch posts by partial description/title

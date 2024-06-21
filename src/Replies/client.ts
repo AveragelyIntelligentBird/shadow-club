@@ -2,7 +2,7 @@ import axios from "axios";
 const axiosWithCredentials = axios.create({ withCredentials: true });
 const REMOTE_SERVER = process.env.REACT_APP_REMOTE_SERVER;
 const POSTS_API = `${REMOTE_SERVER}/api/posts`;
-const REPLY_API = `${REMOTE_SERVER}/api/reply`;
+const REPLY_API = `${REMOTE_SERVER}/api/replies`;
 const USERS_API = `${REMOTE_SERVER}/api/users`;
 
 export const deleteReply = async (replyId: string) => {
@@ -41,5 +41,8 @@ export const findReplyForId = async (replyId: string) => {
     return response.data;
 };
 
-// We very likely need a function to fetch posts by partial description/title
-// Actually, we will handle this through filtering in the search bar.
+export const findAuthorForReply = async (replyId: string) => {
+    const response = await axiosWithCredentials
+      .get(`${REPLY_API}/${replyId}/author`);
+    return response.data;
+}
