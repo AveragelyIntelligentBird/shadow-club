@@ -7,6 +7,8 @@ import Circles from "../Circles";
 import Profile from "../Account/Profile";
 import PostEditor from "../Posts/PostEditor";
 import {useSelector} from "react-redux";
+import PostReplies from "../Posts/PostReplies";
+import ReplyEditor from "../Replies/ReplyEditor";
 
 export default function Cabal() {
     const currentUser =
@@ -23,6 +25,8 @@ export default function Cabal() {
                     <Route path="/Feed" element={<Navigate to={(currentUser) ? "Subscribed" : "All"}/>}/>
                     <Route path="/Feed/*" element={<HomeFeed/>}/>
                     <Route path="/Circles" element={<Circles/>}/>
+                    <Route path="/Post/:pid" element={<PostReplies/>}/>
+                    <Route path="/Post/:pid/New" element={<ReplyEditor/>}/>
                     <Route path="/Circles/:id/New" element={<PostEditor/>}/>
                     <Route path="/Circles/:id" element={<CommunityFeed/>}/>
                 </Routes>

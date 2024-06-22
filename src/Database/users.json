@@ -11,7 +11,7 @@
       "phone": "123-456-7890",
       "birthday": "01/01/2000"
     },
-    "profileData": {
+    "": {
       "avatar": "/images/reptiloid.jpg",
       "bio": "I'm a reptiloid",
       "memberSince": "01/01/2020",
@@ -37,7 +37,7 @@
       "phone": "123-456-7890",
       "birthday": "01/01/2000"
     },
-    "profileData": {
+    "": {
       "avatar": "/images/reptiloid-1.jpg",
       "bio": "I'm also a reptiloid",
       "memberSince": "01/01/2020",
@@ -63,7 +63,7 @@
     "phone": "123-456-7890",
     "birthday": "01/01/2000"
   },
-  "profileData": {
+  "": {
     "avatar": "/images/reptiloid-2.jpg",
     "bio": "I'm yet another reptiloid",
     "memberSince": "01/01/2020",
@@ -89,7 +89,7 @@
       "phone": "123-456-7890",
       "birthday": "01/01/2000"
     },
-    "profileData": {
+    "": {
       "avatar": "/images/alien.png",
       "bio": "I'm an alien, not a reptiloid!!!",
       "memberSince": "01/01/2020",

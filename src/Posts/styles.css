@@ -14,7 +14,7 @@
     /* font-family: 'YourSecondaryFontFamily', sans-serif;  Replace with actual secondary font */
     margin-bottom: 0.5rem; /* Bootstrap's mb-2 class is typically 0.5rem */
     padding: 1rem; /* Bootstrap's p-3 class is typically 1rem */
-}
+  }
   
   .post-title {
     font-size: 24px;
@@ -22,7 +22,7 @@
     font-weight: 400;
     font-style: normal;
     /* Need to do more font stuff */
-    margin-bottom: 10px;
+    margin-bottom: 3px;
     margin-right: 10px;
     color: #adff2f;
   }
@@ -81,6 +81,34 @@
     cursor: pointer;
     color: #8faf96;
   }
+
+  .delete-button {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #8faf96;
+    margin-bottom: 10px;
+    margin-left: 5px;
+  }
+
+  .comment-button {
+    background-color: #8faf96;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #343a40;
+    /* Round the corners */
+    border-radius: 1rem;
+  }
+
+  .comment-button:hover {
+    background-color: #627366;
+  }
+
+  .delete-button:hover {
+    color: #627366;
+  }
   
   .reply-button:hover,
   .like-button:hover {
@@ -120,4 +148,16 @@
   
   .tab:not(.selected):hover {
     background-color: #627366; /* Optional: slightly darker on hover */
+  }
+
+  .wd-elite-border {
+    border: solid 3px #B0FE76;
+  }
+
+  .wd-moderator-border {
+    border: solid 3px #C44900;
+  }
+
+  .wd-overseer-border {
+    border: solid 3px #bf32f5;
   }

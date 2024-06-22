@@ -1,0 +1,17 @@
+.reply {
+    background-color: #343a40 !important; /* Assuming 'jet' refers to a dark grey/black color */
+    color: #adff2f; /* Assuming 'green-yellow' refers to a shade like 'GreenYellow' */
+    border-radius: 1rem; /* Assuming '2' is 0.25rem in bootstrap-like classes */
+    /* font-family: 'YourSecondaryFontFamily', sans-serif;  Replace with actual secondary font */
+    margin-bottom: 0.5rem; /* Bootstrap's mb-2 class is typically 0.5rem */
+    padding: 1rem; /* Bootstrap's p-3 class is typically 1rem */
+    margin-left: 2rem;
+  }
+.reply-body
+{
+    font-size: 16px;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #adff2f;
+}
