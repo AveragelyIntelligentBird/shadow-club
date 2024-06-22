@@ -29,7 +29,7 @@ export default function Profile() {
         }
 
         fetchProfile();
-    }, [profile]);
+    }, []);
 
     const tabs = ["Posts","Likes", "Replies", "Affiliations"];
     return (
@@ -90,7 +90,7 @@ export default function Profile() {
                                             )
                                         )
                                     }/>
-                                    <Route path="Affiliations" element={<Affiliations profile={profile} currentUser={currentUser}/>}/>
+                                    <Route path="Affiliations" element={<Affiliations profile={profile}/>}/>
                                 </Routes>
                             </div>
                         </div>

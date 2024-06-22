@@ -1,11 +1,11 @@
 import {useDispatch, useSelector} from "react-redux";
-import {useParams} from "react-router";
+import {useNavigate, useParams} from "react-router";
 import {Link} from "react-router-dom";
 import {GrEdit} from "react-icons/gr";
 import {BsEyeFill} from "react-icons/bs";
 import {setCurrentUser} from "../reducer";
 import {RiEyeCloseLine} from "react-icons/ri";
-import * as client from "./client";
+import * as client from "../client";
 
 export default function ProfileCard({profile, fetchProfile}: {
     profile: any;
@@ -13,6 +13,7 @@ export default function ProfileCard({profile, fetchProfile}: {
 })
 {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const currentUser =
         useSelector((state: any) => state.accountReducer)["currentUser"];
     const uid = currentUser._id;
@@ -26,6 +27,12 @@ export default function ProfileCard({profile, fetchProfile}: {
         await client.updateProfile(newProfile);
         dispatch(setCurrentUser(newCurrentUser));
         fetchProfile()
+    };
+
+    const signOut = async () => {
+        navigate("/SignIn");
+        await client.signout();
+        dispatch(setCurrentUser(null));
     };
 
     const unfollowUser = async () => {
@@ -98,10 +105,8 @@ export default function ProfileCard({profile, fetchProfile}: {
                 <div className="flex-grow-1"/>
                 {
                     (isThisUser) &&
-                    <div>
-                        <Link to="" className="my-4 wd-mahogany">
-                            <span className="wd-color-mah-on-hover">Sign out</span>
-                        </Link>
+                    <div className="wd-mahogany text-decoration-underline" onClick={signOut}>
+                        <span className="wd-color-mah-on-hover">Sign out</span>
                     </div>
                 }
             </div>

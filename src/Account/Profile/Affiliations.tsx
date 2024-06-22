@@ -1,10 +1,10 @@
 import {Link} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import * as circleClient from "../../Circles/client";
-import * as profileClient from "./client";
+import * as profileClient from "../client";
 
 export default function Affiliations (
-    {profile, currentUser}: { profile: any; currentUser: any; })
+    {profile}: { profile: any})
 {
     const profileId = profile._id;
     const [profileCircles, setProfileCircles] = useState([]);
@@ -27,7 +27,7 @@ export default function Affiliations (
         fetchProfileCircles();
         fetchProfileFollowers();
         fetchProfileFollowing();
-    },[profile, currentUser]);
+    },[profile]);
 
     return (
         <div id="profile-affiliations" className="fs-5 wd-primary-font">
@@ -41,7 +41,7 @@ export default function Affiliations (
                     >
                         <img src={circle.image}
                              className="wd-circle-pic"
-                             alt="Circle banner picture"
+                             alt="Circle banner"
                         />
                         <div className="text-center" style={{width: "130px"}}>
                             <Link to={`/Circles/${circle._id}`} className="wd-camb-blue">
@@ -64,7 +64,7 @@ export default function Affiliations (
                             >
                                 <img src={userFollowing.avatar}
                                      className="wd-other-user-pic"
-                                     alt="User avatar picture"
+                                     alt="User avatar"
                                 />
                                 <Link to={`/Profile/${userFollowing._id}`} className="wd-camb-blue ms-2">
                                     <span className="wd-color-on-hover">
@@ -84,7 +84,7 @@ export default function Affiliations (
                             >
                                 <img src={userFollower.avatar}
                                      className="wd-other-user-pic"
-                                     alt="User avatar picture"
+                                     alt="User avatar"
                                 />
                                 <Link to={`/Profile/${userFollower._id}`} className="wd-camb-blue ms-2">
                                     <span className="wd-color-on-hover">

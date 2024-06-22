@@ -5,7 +5,7 @@ import {Link, Route, Routes} from "react-router-dom";
 import EditorProfileData from "./EditorProfile";
 import EditorSensitive from "./EditorSensitive";
 import EditorLogin from "./EditorLogin";
-import * as client from "./client";
+import * as client from "../client";
 import {setCurrentUser} from "../reducer";
 
 export default function ProfileEditor({profile, setProfile}: {

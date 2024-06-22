@@ -3,10 +3,7 @@ const axiosWithCredentials = axios.create({ withCredentials: true });
 export const REMOTE_SERVER = process.env.REACT_APP_REMOTE_SERVER || "http://localhost:4000";
 export const PROFILES_API = `${REMOTE_SERVER}/api/profiles`;
 
-export const findUserProfileById = async (id: string | undefined) => {
-    const response = await axiosWithCredentials.get(`${PROFILES_API}/${id}`);
-    return response.data;
-};
+// Session Management
 export const profile = async () => {
     console.log("Client fetching profile")
     const response = await axiosWithCredentials.post(`${PROFILES_API}/profile`);
@@ -31,4 +28,54 @@ export const anonymous = async () => {
   const response = await axiosWithCredentials.post(`${PROFILES_API}/anonymous`);
   // set the current user
   return response.data;
+};
+
+
+// Profile Retrieves
+export const findUserProfileById = async (id: string | undefined) => {
+    const response = await axiosWithCredentials.get(`${PROFILES_API}/${id}`);
+    return response.data;
+};
+
+export const findAllProfiles = async () => {
+    const response = await axios.get(`${PROFILES_API}`);
+    return response.data;
+};
+
+export const findProfileById = async (id: string) => {
+    const response = await axios.get(`${PROFILES_API}/${id}`);
+    return response.data;
+};
+
+export const findManyProfilesById = async (listIds: any) => {
+    const response =
+        await axios.get(`${PROFILES_API}`, {params: {ids: listIds}});
+    return response.data;
+};
+
+export const findProfilesByRole = async (role: string) => {
+    const response = await
+        axios.get(`${PROFILES_API}?role=${role}`);
+    return response.data;
+};
+
+export const findProfilesByPartialName = async (name: string) => {
+    const response = await axios.get(`${PROFILES_API}?name=${name}`);
+    return response.data;
+};
+
+// Profile C_UD
+export const createProfile = async (profile: any) => {
+    const response = await axios.post(`${PROFILES_API}`, profile);
+    return response.data;
+};
+
+export const updateProfile = async (profile: any) => {
+    const response = await axios.put(`${PROFILES_API}/${profile._id}`, profile);
+    return response.data;
+};
+
+export const deleteProfile = async (profileId: string) => {
+    const response = await axios.delete(`${PROFILES_API}/${profileId}`);
+    return response.data;
 };

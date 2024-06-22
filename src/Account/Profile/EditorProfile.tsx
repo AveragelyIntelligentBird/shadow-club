@@ -1,7 +1,3 @@
-import {updateProfileLocal} from "./reducer";
-import {useDispatch} from "react-redux";
-import {useNavigate} from "react-router";
-
 export default function EditorProfileData(
     {profile, setProfile }: { profile: any; setProfile: (course: any) => void; }
 ) {
