@@ -13,6 +13,7 @@ export default function Cabal() {
             <CabalNavigation/>
             <div className="flex-fill p-4">
                 <Routes>
+                    <Route path="/Home" element={<Navigate to="/Feed"/>}/>
                     <Route path="/Profile" element={<Navigate to="u/Posts"/>}/>
                     <Route path="/Profile/:profileId" element={<Navigate to="Posts"/>}/>
                     <Route path="/Profile/:profileId/*" element={<Profile/>}/>

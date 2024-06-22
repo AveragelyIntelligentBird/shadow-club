@@ -32,11 +32,9 @@ export default function ProfileCard({profile, fetchProfile}: {
         const newCurrentUser = {
             ...currentUser,
             following: currentUser.following.filter((f: any) => f !== profileId)};
-        console.log("new current user:", newCurrentUser);
         const newProfile = {
             ...profile,
             followers: profile.followers.filter((f: any) => f !== uid)};
-        console.log("new profile:", newProfile);
         await client.updateProfile(newCurrentUser);
         await client.updateProfile(newProfile);
         dispatch(setCurrentUser(newCurrentUser));

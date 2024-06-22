@@ -4,7 +4,7 @@ import * as circleClient from "../../Circles/client";
 import * as profileClient from "./client";
 
 export default function Affiliations (
-    {profile}: { profile: any; })
+    {profile, currentUser}: { profile: any; currentUser: any; })
 {
     const profileId = profile._id;
     const [profileCircles, setProfileCircles] = useState([]);
@@ -27,7 +27,7 @@ export default function Affiliations (
         fetchProfileCircles();
         fetchProfileFollowers();
         fetchProfileFollowing();
-    },[profile]);
+    },[profile, currentUser]);
 
     return (
         <div id="profile-affiliations" className="fs-5 wd-primary-font">
@@ -45,7 +45,7 @@ export default function Affiliations (
                         />
                         <div className="text-center" style={{width: "130px"}}>
                             <Link to={`/Circles/${circle._id}`} className="wd-camb-blue">
-                                <p className="text-truncate" style={{overflow: "hidden"}}>
+                                <p className="text-truncate wd-color-on-hover" style={{overflow: "hidden"}}>
                                     {circle.name}
                                 </p>
                             </Link>
@@ -67,7 +67,9 @@ export default function Affiliations (
                                      alt="User avatar picture"
                                 />
                                 <Link to={`/Profile/${userFollowing._id}`} className="wd-camb-blue ms-2">
+                                    <span className="wd-color-on-hover">
                                         {userFollowing.username}
+                                    </span>
                                 </Link>
                             </div>
                         ))}
@@ -85,7 +87,9 @@ export default function Affiliations (
                                      alt="User avatar picture"
                                 />
                                 <Link to={`/Profile/${userFollower._id}`} className="wd-camb-blue ms-2">
-                                    {userFollower.username}
+                                    <span className="wd-color-on-hover">
+                                        {userFollower.username}
+                                    </span>
                                 </Link>
                             </div>
                         ))}

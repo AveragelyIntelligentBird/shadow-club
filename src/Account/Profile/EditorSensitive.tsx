@@ -13,10 +13,27 @@ export default function EditorSensitive(
                     type="text"
                     className="form-control wd-input-field-format"
                     id="wd-real-name"
-                    value={profile.sensitiveData.realName}
+                    value={profile.realName}
                     onChange={(e) => setProfile({
                         ...profile,
-                        sensitiveData: {...profile.sensitveData, realName: e.target.value},
+                        realName: e.target.value,
+                        hasChanged: true
+                    })
+                    }
+                />
+            </div>
+            <label htmlFor="wd-email" className="col-form-label">
+                Email Address
+            </label>
+            <div className="flex-fill">
+                <input
+                    type="text"
+                    className="form-control wd-input-field-format"
+                    id="wd-email"
+                    value={profile.email}
+                    onChange={(e) => setProfile({
+                        ...profile,
+                        email: e.target.value,
                         hasChanged: true
                     })
                     }
@@ -30,10 +47,10 @@ export default function EditorSensitive(
                     type="text"
                     className="form-control wd-input-field-format"
                     id="wd-address"
-                    value={profile.sensitiveData.address}
+                    value={profile.address}
                     onChange={(e) => setProfile({
                         ...profile,
-                        sensitiveData: {...profile.sensitveData, address: e.target.value},
+                        address: e.target.value,
                         hasChanged: true
                     })
                     }
@@ -47,10 +64,10 @@ export default function EditorSensitive(
                     type="text"
                     className="form-control wd-input-field-format"
                     id="wd-phone"
-                    value={profile.sensitiveData.phone}
+                    value={profile.phone}
                     onChange={(e) => setProfile({
                         ...profile,
-                        sensitiveData: {...profile.sensitveData, phone: e.target.value},
+                        phone: e.target.value,
                         hasChanged: true
                     })
                     }
@@ -61,13 +78,13 @@ export default function EditorSensitive(
             </label>
             <div className="flex-fill">
                 <input
-                    type="text"
+                    type="date"
                     className="form-control wd-input-field-format"
-                    id="wd-real-name"
-                    value={profile.sensitiveData.birthday}
+                    id="wd-bd"
+                    value={profile.birthday}
                     onChange={(e) => setProfile({
                         ...profile,
-                        sensitiveData: {...profile.sensitveData, birthday: e.target.value},
+                        birthday: e.target.value,
                         hasChanged: true
                     })
                     }

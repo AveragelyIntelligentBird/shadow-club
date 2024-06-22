@@ -17,9 +17,9 @@ export default function Profile() {
     const {pathname} = useLocation();
     const currentUser = useSelector((state: any) => state.accountReducer)["currentUser"];
     const [profile, setProfile] = useState<any>(currentUser);
-    const fetchOtherUserProfile = async () => {
+    const fetchProfile = async () => {
         console.log("fetchOtherUserProfile");
-        const account = await client.findUserProfileById(profileId);
+        const account = await client.findUserProfileById((!isThisUser) ? profileId : currentUser._id);
         setProfile(account);
     };
     useEffect(() => {
@@ -28,7 +28,7 @@ export default function Profile() {
             return;
         }
 
-        (!isThisUser) ? fetchOtherUserProfile() : setProfile(currentUser);
+        fetchProfile();
     }, [profile]);
 
     const tabs = ["Posts","Likes", "Replies", "Affiliations"];
@@ -38,9 +38,11 @@ export default function Profile() {
             <NotFound subject="User"/>
             :
             <div id="profile-page" className="d-flex">
-                <ProfileCard profile={profile} fetchProfile={fetchOtherUserProfile}/>
+                <ProfileCard profile={profile} fetchProfile={fetchProfile}/>
                 <Routes>
-                    <Route path="Edit/*" element={<ProfileEditor/>}/>
+                    <Route path="Edit/*" element={
+                        <ProfileEditor profile={profile} setProfile={setProfile}/>
+                    }/>
                     <Route path="*" element={
                         <div id="profile-content" className="flex-grow-1">
                             <div id="profile-tabs" className="my-1 d-flex">
@@ -88,7 +90,7 @@ export default function Profile() {
                                             )
                                         )
                                     }/>
-                                    <Route path="Affiliations" element={<Affiliations profile={profile}/>}/>
+                                    <Route path="Affiliations" element={<Affiliations profile={profile} currentUser={currentUser}/>}/>
                                 </Routes>
                             </div>
                         </div>
