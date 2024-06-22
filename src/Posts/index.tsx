@@ -16,7 +16,7 @@ export default function HomeFeed() {
     const {pathname} = useLocation();
     const fetchPosts = async () => {
         if (user) {
-            console.log("user", user)
+            // console.log("user", user)
             let all = await client.findAllPosts();
             const publicPosts = await client.findPublicPosts();
             // use the publicPosts list to add a public field to each object in all
@@ -24,21 +24,21 @@ export default function HomeFeed() {
             // Add an author field to each post in all for whether the user is following the author
             all = await Promise.all(all.map(async (p: any) => {
                 const author = await client.findAuthorForPost(p._id);
-                p.following = user?.following.includes(author._id || "");
+                p.following = user?.following.includes(author?._id || "");
                 return p;
             }));
-            console.log("added public field to all posts", all)
+            // console.log("added public field to all posts", all)
             // The all tab displays public posts and posts from communities the user is a member of
             all = all.filter((p: any) => (user?.memberOf.includes(p.circle) || p.public));
-            console.log("got disp all", all)
+            // console.log("got disp all", all)
             setAllPosts([...all]);
             // The subscribed tab displays posts from communities the user is a member of
             const sub = all.filter((p: any) =>  user?.memberOf.includes(p.circle));
-            console.log("got subbed", sub)
+            // console.log("got subbed", sub)
             setSubPosts([...sub]);
             // The following tab displays posts from authors the user is following
             const following = all.filter((p: any) => p.following);
-            console.log("got following", following)
+            // console.log("got following", following)
             setFollowingPosts([...following]);
         } else {
             // The all tab displays only public posts

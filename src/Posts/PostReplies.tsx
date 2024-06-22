@@ -14,7 +14,7 @@ export default function PostReplies() {
     };
     useEffect(() => {
         fetchReplies();
-    }, []);
+    });
     return (
         <div>
             <Post id={pid || ""} />

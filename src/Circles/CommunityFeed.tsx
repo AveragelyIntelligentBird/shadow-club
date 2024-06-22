@@ -11,8 +11,9 @@ export default function CommunityFeed(): ReactElement {
     const [circle, setCircle] = useState<any>();
     const [posts, setPosts] = useState<any[]>([]);
     const [moderators, setModerators] = useState<any[]>([]);
-    const { user } = useSelector((state: any) => state.accountReducer);
-
+    // const { user } = useSelector((state: any) => state.accountReducer);
+    let user = useSelector((state: any) => state.accountReducer)["currentUser"];
+    
     const fetchCircle = async () => {
       const circle = await client.findCircleForId(id || "");
       setCircle(circle);

@@ -15,3 +15,18 @@
     font-style: normal;
     color: #adff2f;
 }
+.login 
+{
+    background-color: #343a40 !important; /* Assuming 'jet' refers to a dark grey/black color */
+    color: #adff2f; /* Assuming 'green-yellow' refers to a shade like 'GreenYellow' */
+    font-size: 20px;
+    font-weight: 600;
+    font-style: normal;
+    margin-bottom: 0.5rem; /* Bootstrap's mb-2 class is typically 0.5rem */
+    padding: 1rem; /* Bootstrap's p-3 class is typically 1rem */
+    margin-left: 2rem;
+}
+.login:hover
+{
+    background-color: #464e55 !important; /* Assuming 'jet' refers to a dark grey/black color */
+}
