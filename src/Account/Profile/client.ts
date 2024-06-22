@@ -7,6 +7,17 @@ export const PROFILES_API = `${REMOTE_SERVER}/api/profiles`;
     const response = await axios.get(`${PROFILES_API}`);
     return response.data;
   };
+
+  export const findProfileById = async (id: string) => {
+    const response = await axios.get(`${PROFILES_API}/${id}`);
+    return response.data;
+  };
+
+  export const findManyProfilesById = async (listIds : any ) => {
+    const response =
+        await axios.get(`${PROFILES_API}`, { params: { ids : listIds } });
+    return response.data;
+  };
   
   export const findProfilesByRole = async (role: string) => {
     const response = await
@@ -17,11 +28,6 @@ export const PROFILES_API = `${REMOTE_SERVER}/api/profiles`;
   // extend for posts and circles?
   export const findProfilesByPartialName = async (name: string) => {
     const response = await axios.get(`${PROFILES_API}?name=${name}`);
-    return response.data;
-  };
-
-  export const findProfileById = async (id: string) => {
-    const response = await axios.get(`${PROFILES_API}/${id}`);
     return response.data;
   };
 

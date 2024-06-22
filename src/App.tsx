@@ -4,14 +4,11 @@ import store from "./store";
 import { Provider } from "react-redux";
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import Welcome from "./Welcome"
-import Login from "./Login"
+import SignIn from "./Account"
+import SignUp from "./Account/SignUp"
 import Cabal from "./Cabal"
 import './App.css';
-import HomeFeed from './Posts';
-import Circles from './Circles';
-import PostEditor from './Posts/PostEditor';
-import CommunityFeed from './Circles/CommunityFeed';
-import Session from './Login/Session';
+import Session from './Account/Session';
 
 function App() {
     return (
@@ -22,9 +19,9 @@ function App() {
                         <Routes>
                             <Route path="/" element={<Navigate to="Welcome"/>}/>
                             <Route path="/Welcome" element={<Welcome/>}/>
-                            <Route path="/Login" element={<Login/>}/>
-                            <Route path="/Cabal" element={<Cabal/>}/>
-                            <Route path="/:uid/*" element={<Cabal/>}/>
+                            <Route path="/SignIn" element={<SignIn/>}/>
+                            <Route path="/SignUp" element={<SignUp/>}/>
+                            <Route path="/*" element={<Cabal/>}/>
                         </Routes>
                     </div>
                 </HashRouter>

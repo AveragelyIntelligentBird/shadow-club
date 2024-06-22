@@ -4,8 +4,7 @@ import CabalNavigation from "../Navigation";
 import HomeFeed from "../Posts";
 import CommunityFeed from "../Circles/CommunityFeed";
 import Circles from "../Circles";
-import ProfileEditor from "../Profile/Editor";
-import Profile from "../Profile";
+import Profile from "../Account/Profile";
 import PostEditor from "../Posts/PostEditor";
 
 export default function Cabal() {
@@ -14,8 +13,8 @@ export default function Cabal() {
             <CabalNavigation/>
             <div className="flex-fill p-4">
                 <Routes>
-                    <Route path="/Profile/:profileId/" element={<Navigate to="Posts"/>}/>
-                    <Route path="/Profile/:profileId/Edit/*" element={<ProfileEditor/>}/>
+                    <Route path="/Profile" element={<Navigate to="u/Posts"/>}/>
+                    <Route path="/Profile/:profileId" element={<Navigate to="Posts"/>}/>
                     <Route path="/Profile/:profileId/*" element={<Profile/>}/>
                     <Route path="/Feed/*" element={<HomeFeed/>}/>
                     <Route path="/Circles" element={<Circles/>}/>

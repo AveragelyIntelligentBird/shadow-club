@@ -123,6 +123,9 @@ code {
 .wd-color-on-hover:hover {
     color: #B0FE76;
 }
+.wd-color-mah-on-hover:hover {
+    color: #ff5f00;
+}
 
 .wd-jet-border {
     border: solid 2px #363635;

@@ -44,3 +44,17 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Image Sources
+- [Mothman](https://www.deviantart.com/suviridian/art/Mothman-721247959)
+- [Alien](https://dragoart.com/tut/how-to-draw-a-gray-alien-the-grays-19880)
+- [Alien 2](https://vziotvstandbasez.blogspot.com/2022/07/drawings-of-alien-girls.html)
+- [Reptiloid](https://kryptiden-wesen-aliens.fandom.com/de/wiki/Reptiloide_Au%C3%9Ferirdische)
+- [Default Reptiloid Pfps](https://fineartamerica.com/featured/designer-reptilians-david-chace.html)
+- [Human Person](https://www.crushpixel.com/stock-photo/happy-smiling-man-giving-thumbs-676406.html)
+- [Human Person 2](https://www.dreamstime.com/stock-photo-happy-smiling-successful-business-woman-showing-thumb-up-gestu-gesture-white-isolated-background-image64611384)
+- [Tin Foil](https://whalebonemag.com/wp-content/uploads/2019/12/tin-foil-2-1-600x600.png)
+- [Vampire](https://www.instagram.com/p/Bsna3nvg7nq/?img_index=1)
+- [Werewolf](https://www.deviantart.com/ravenmadwolf/art/Smile-495403820)
+- [Cultist](https://ph.pinterest.com/pin/732397958122927964/)
+- [Overseer](https://www.deviantart.com/gcoghill/art/Cult-Leader-Cartoon-Character-Sketch-495272599)

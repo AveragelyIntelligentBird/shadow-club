@@ -9,7 +9,7 @@ export default function Session({ children }: { children: any }) {
     try {
       const currentUser = await client.profile();
       dispatch(setCurrentUser(currentUser));
-      console.log(currentUser);
+      console.log("Session updated user");
     } catch (err: any) {
       console.error(err);
     }

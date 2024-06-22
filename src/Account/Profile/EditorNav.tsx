@@ -5,7 +5,7 @@ import "./index.css"
 export default function EditorNav() {
     const { uid, profileId } = useParams();
     const {pathname} = useLocation();
-    const links = ["Profile", "Sensitive", "Login"];
+    const links = ["Profile", "Sensitive", "Account"];
     return (
         <div id="wd-profile-editor-navigation">
             {

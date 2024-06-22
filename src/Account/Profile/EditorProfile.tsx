@@ -1,4 +1,4 @@
-import {updateProfile} from "./reducer";
+import {updateProfileLocal} from "./reducer";
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router";
 

@@ -19,7 +19,7 @@ export default function Welcome() {
                 Image Source - Freepik
             </a>
             <div className="fixed-bottom">
-                <Link to="/Login"
+                <Link to="/SignIn"
                       className="wd-bg-ebony float-end border border-1 border-black"
                       style={{width: "50px"}}>
                     <GiWarlockEye className="fs-2 wd-jet m-2"/>

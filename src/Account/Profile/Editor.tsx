@@ -1,9 +1,9 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate, useParams} from "react-router";
 import React, { useState } from "react";
-import {updateProfile} from "./reducer";
+import {updateProfileLocal} from "./reducer";
 import EditorNav from "./EditorNav";
-import NotFound from "../NotFound";
+import NotFound from "../../NotFound";
 import {Link, Route, Routes} from "react-router-dom";
 import EditorProfileData from "./EditorProfile";
 import EditorSensitive from "./EditorSensitive";
@@ -37,7 +37,7 @@ export default function ProfileEditor() {
                         <div className="align-items-center d-flex">
                             <button className="wd-primary-btn wd-primary-btn-on-hover me-2"
                                     onClick={() => {
-                                        dispatch(updateProfile(profile));
+                                        dispatch(updateProfileLocal(profile));
                                         setProfile({...profile, hasChanged: false});
                                     }}>
                                 Save

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { users } from "../Database";
+import { users } from "../../Database";
 const initialState = {
   profiles: users,
 };
@@ -8,13 +8,13 @@ const profilesSlice = createSlice({
     name: "profiles",
     initialState,
     reducers: {
-        updateProfile: (state, {payload: profile}) => {
+        updateProfileLocal: (state, {payload: profile}) => {
             delete profile.hasChanged;
             state.profiles = state.profiles.map((p) =>
                 p.uid === profile.uid ? profile : p
             );
         },
-        followProfile: (state, {payload: uids}) => {
+        followProfileLocal: (state, {payload: uids}) => {
             state.profiles = state.profiles.map((p) => {
                 if (p.uid === uids.profileId) {
                     return {...p, profileData: {...p.profileData, followers: [...p.profileData.followers, uids.userId]}}
@@ -25,7 +25,7 @@ const profilesSlice = createSlice({
                 }
             });
         },
-        unfollowProfile: (state, {payload: uids}) => {
+        unfollowProfileLocal: (state, {payload: uids}) => {
             state.profiles = state.profiles.map((p) => {
                 if (p.uid === uids.profileId) {
                     return {...p, profileData: {...p.profileData,
@@ -44,8 +44,8 @@ const profilesSlice = createSlice({
 
 });
 export const {
-    updateProfile,
-    followProfile,
-    unfollowProfile
+    updateProfileLocal,
+    followProfileLocal,
+    unfollowProfileLocal
 } =  profilesSlice.actions;
 export default profilesSlice.reducer;
