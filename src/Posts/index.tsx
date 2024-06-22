@@ -21,19 +21,25 @@ export default function HomeFeed() {
             const publicPosts = await client.findPublicPosts();
             // use the publicPosts list to add a public field to each object in all
             all = all.map((p: any) => ({...p, public: publicPosts.includes(p._id)}));
+            // Add an author field to each post in all for whether the user is following the author
+            all = await Promise.all(all.map(async (p: any) => {
+                const author = await client.findAuthorForPost(p._id);
+                p.following = user?.following.includes(author._id || "");
+                return p;
+            }));
             console.log("added public field to all posts", all)
             // The all tab displays public posts and posts from communities the user is a member of
             all = all.filter((p: any) => (user?.memberOf.includes(p.circle) || p.public));
             console.log("got disp all", all)
-            setAllPosts(all);
+            setAllPosts([...all]);
             // The subscribed tab displays posts from communities the user is a member of
-            const sub = all.filter((p: any) => user?.memberOf.includes(p.circle));
+            const sub = all.filter((p: any) =>  user?.memberOf.includes(p.circle));
             console.log("got subbed", sub)
-            setSubPosts(sub);
-            // The following tab displays posts from users the user is following (that are public or from communities the user is a member of)
-            const following = all.filter((p: any) => user?.following.includes(p.author));
+            setSubPosts([...sub]);
+            // The following tab displays posts from authors the user is following
+            const following = all.filter((p: any) => p.following);
             console.log("got following", following)
-            setFollowingPosts(following);
+            setFollowingPosts([...following]);
         } else {
             // The all tab displays only public posts
             const publicPosts = await client.findPublicPosts();
