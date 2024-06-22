@@ -1,4 +1,4 @@
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { BsGlobe } from "react-icons/bs";
 import { BsEyeFill } from "react-icons/bs";
 import React, { ReactElement } from "react";

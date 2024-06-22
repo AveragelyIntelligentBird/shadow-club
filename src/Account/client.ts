@@ -5,9 +5,7 @@ export const PROFILES_API = `${REMOTE_SERVER}/api/profiles`;
 
 // Session Management
 export const profile = async () => {
-    console.log("Client fetching profile")
     const response = await axiosWithCredentials.post(`${PROFILES_API}/profile`);
-    console.log("profile", response.data)
     return response.data;
   };
 export const signin = async (credentials: any) => {
@@ -24,12 +22,9 @@ export const signout = async () => {
   return response.data;
 };
 export const anonymous = async () => {
-  console.log(`Anon`);
   const response = await axiosWithCredentials.post(`${PROFILES_API}/anonymous`);
-  // set the current user
   return response.data;
 };
-
 
 // Profile Retrieves
 export const findUserProfileById = async (id: string | undefined) => {

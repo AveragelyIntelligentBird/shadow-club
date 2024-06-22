@@ -17,8 +17,8 @@ export default function Profile() {
     const {pathname} = useLocation();
     const currentUser = useSelector((state: any) => state.accountReducer)["currentUser"];
     const [profile, setProfile] = useState<any>(currentUser);
+
     const fetchProfile = async () => {
-        console.log("fetchOtherUserProfile");
         try {
             const account = await client.findUserProfileById((!isThisUser) ? profileId : currentUser._id);
             setProfile(account);

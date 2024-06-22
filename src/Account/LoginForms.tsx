@@ -9,10 +9,15 @@ export default function LoginForms() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [credentials, setCredentials] = useState<any>({});
+    const [error, setError] = useState("");
     const signin = async () => {
-        const currentUser = await client.signin(credentials);
-        dispatch(setCurrentUser(currentUser));
-        navigate("/Feed/Subscribed");
+        try {
+            const currentUser = await client.signin(credentials);
+            dispatch(setCurrentUser(currentUser));
+            navigate("/Feed/Subscribed");
+        } catch (err: any) {
+            setError(err.response.data.message);
+        }
     };
 
     const handleAnonymousLogin = () => {
@@ -45,6 +50,7 @@ export default function LoginForms() {
                     <Link to="/SignUp" className="mx-3 wd-camb-blue">
                         <span className="wd-color-on-hover">Sign Up{" "}</span>
                     </Link>
+                    {error && <div className="mt-3 wd-mahogany">{error}</div>}
                 </div>
             </div>
             <div className="col-lg">
