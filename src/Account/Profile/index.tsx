@@ -29,9 +29,9 @@ export default function Profile() {
         }
 
         (!isThisUser) ? fetchOtherUserProfile() : setProfile(currentUser);
-    }, []);
+    }, [profile]);
 
-    const tabs = ["Posts", "Replies", "Affiliations"];
+    const tabs = ["Posts","Likes", "Replies", "Affiliations"];
     return (
         (!profile)
             ?
@@ -66,6 +66,15 @@ export default function Profile() {
                                             (post: any) => (
                                                 <div className="wd-default-card wd-secondary-font mb-2 p-3">
                                                     Post {post}
+                                                </div>
+                                            )
+                                        )
+                                    }/>
+                                    <Route path="Likes" element={
+                                        profile.likes.map(
+                                            (like: any) => (
+                                                <div className="wd-default-card wd-secondary-font mb-2 p-3">
+                                                    Liked post {like}
                                                 </div>
                                             )
                                         )
