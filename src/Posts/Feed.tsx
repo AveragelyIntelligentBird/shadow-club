@@ -3,7 +3,6 @@ import Post from "./Post";
 import "./styles.css";
 
 export default function Feed({ posts }: FeedProps): ReactElement {
-  // console.log(posts);
   return (
     <div className="feed">
       {posts.map((post, index) => (

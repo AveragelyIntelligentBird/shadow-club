@@ -11,7 +11,7 @@ type BannerProps = {
 export default function Banner({ id, image }: BannerProps): ReactElement {
     return (
         <div>
-            <Link to={`/Cabal/Circles/${id}`} className="text-decoration-none" >
+            <Link to={`/Circles/${id}`} className="text-decoration-none" >
                 <img src={image} alt="Community Banner" className="banner"/>
             </Link>
         </div>

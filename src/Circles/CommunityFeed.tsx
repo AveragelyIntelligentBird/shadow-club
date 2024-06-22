@@ -50,7 +50,7 @@ export default function CommunityFeed(): ReactElement {
                 You must be a member of this community to view posts. 
                 {moderators[0] && (
                 <> 
-                  &#160;Contact <Link className='private-message-title' to={`/Cabal/Profile/${moderators[0]._id}`}>{moderators[0].username}</Link>to join.
+                  &#160;Contact <Link className='private-message-title' to={`/Profile/${moderators[0]._id}`}>{moderators[0].username}</Link>to join.
                 </>)}
               </h2>
             </div>}

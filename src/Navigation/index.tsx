@@ -20,7 +20,11 @@ export default function CabalNavigation(): ReactElement {
         <div id="nav-bar"
              className="fs-2 p-3 px-4 mb-2 wd-bg-jet wd-green-yellow wd-primary-font d-flex align-items-center"
         >
-            <GiWarlockEye className="fs-1 mb-2 me-2"/> Cabal
+            <Link key={"/Home"} to={"/Home"}
+                  className={`fs-2 d-flex align-items-center text-decoration-none wd-green-yellow`}
+            >
+                <GiWarlockEye className="fs-1 mb-2 me-2"/> Cabal
+            </Link>
             <div className="flex-fill"/>
             {links.map((link) => (
                 <Link key={link.path}

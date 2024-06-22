@@ -38,7 +38,7 @@ export default function CommunityHeader({ cid, name, description, bannerImage, v
         <h1 className="wd-green-yellow wd-primary-font">
             {name} {visibility ? <FaUnlockAlt className="mb-3 pb-2"/> : <FaLock className="mb-3 pb-2"/>}
             {currentUser &&
-                (currentUser?.circles.includes(cid) ? (
+                (currentUser?.memberOf.includes(cid) ? (
                     <button type="button" className="mb-3 btn rounded-pill btn-sm wd-btn-secondary">Leave <FaTimes className="pb-1"/></button>
                 ) : (
                     <button type="button" className="mb-3 btn rounded-pill btn-sm wd-btn-secondary">Join <FaPlus className="pb-1"/></button>
