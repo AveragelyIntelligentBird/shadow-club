@@ -21,6 +21,10 @@ export default function ProfileCard({profile, fetchProfile}: {
     const isThisUser = (profileId === "u");
 
     const followUser = async () => {
+        if (!currentUser) {
+            navigate("/SignIn");
+            return
+        }
         const newCurrentUser = {...currentUser, following: [...currentUser.following, profileId]};
         const newProfile = {...profile, followers: [...profile.followers, uid]};
         await client.updateProfile(newCurrentUser);
@@ -29,13 +33,11 @@ export default function ProfileCard({profile, fetchProfile}: {
         fetchProfile()
     };
 
-    const signOut = async () => {
-        navigate("/SignIn");
-        await client.signout();
-        dispatch(setCurrentUser(null));
-    };
-
     const unfollowUser = async () => {
+        if (!currentUser) {
+            navigate("/SignIn");
+            return
+        }
         const newCurrentUser = {
             ...currentUser,
             following: currentUser.following.filter((f: any) => f !== profileId)};
@@ -46,6 +48,12 @@ export default function ProfileCard({profile, fetchProfile}: {
         await client.updateProfile(newProfile);
         dispatch(setCurrentUser(newCurrentUser));
         fetchProfile()
+    };
+
+    const signOut = async () => {
+        navigate("/SignIn");
+        await client.signout();
+        dispatch(setCurrentUser(null));
     };
 
     return (

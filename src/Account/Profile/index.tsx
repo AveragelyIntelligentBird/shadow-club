@@ -19,11 +19,15 @@ export default function Profile() {
     const [profile, setProfile] = useState<any>(currentUser);
     const fetchProfile = async () => {
         console.log("fetchOtherUserProfile");
-        const account = await client.findUserProfileById((!isThisUser) ? profileId : currentUser._id);
-        setProfile(account);
+        try {
+            const account = await client.findUserProfileById((!isThisUser) ? profileId : currentUser._id);
+            setProfile(account);
+        } catch (err: any) {
+            setProfile(null);
+        }
     };
     useEffect(() => {
-        if (currentUser._id === profileId) {
+        if (currentUser && currentUser._id === profileId) {
             navigate("/Profile/u/Posts");
             return;
         }

@@ -3,11 +3,16 @@ import { BsGlobe } from "react-icons/bs";
 import { BsEyeFill } from "react-icons/bs";
 import React, { ReactElement } from "react";
 import {GiDoubleFaceMask, GiWarlockEye} from "react-icons/gi";
+import {useSelector} from "react-redux";
 
 export default function CabalNavigation(): ReactElement {
+    const currentUser =
+        useSelector((state: any) => state.accountReducer)["currentUser"];
     const {pathname} = useLocation();
     const links = [
-        { label: "My Profile",  path: `/Profile`, includesPath: `/Profile/u/`, icon: GiDoubleFaceMask  },
+        (!currentUser)
+            ? { label: "Sign In", path: "/SignIn", includesPath: "/SignIn", icon: GiDoubleFaceMask }
+            : { label: "My Profile",  path: `/Profile`, includesPath: `/Profile/u/`, icon: GiDoubleFaceMask },
         { label: "Feed", path: `/Feed`, includesPath:`/Feed`, icon: BsEyeFill },
         { label: "Circles", path: `/Circles`,includesPath:`/Circles`,  icon: BsGlobe },
     ];
