@@ -68,18 +68,28 @@
   }
 
   .post-actions {
-    display: flex;
-    justify-content: space-between;
+    /* display: flex; */
+    /* justify-content: space-between; */
     margin-top: 20px;
   }
   
-  .reply-button,
   .like-button {
     background-color: transparent;
     border: none;
     font-size: 16px;
     cursor: pointer;
     color: #8faf96;
+  }
+
+  .reply-button {
+    background-color: transparent;
+    border: 3px solid #8faf96;
+    margin-left: 10px;
+    padding-bottom: 3px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #8faf96;
+    border-radius: 1rem;
   }
 
   .delete-button {
@@ -97,6 +107,7 @@
     border: none;
     font-size: 16px;
     cursor: pointer;
+    padding-bottom: 3px;
     color: #343a40;
     /* Round the corners */
     border-radius: 1rem;
@@ -160,4 +171,20 @@
 
   .wd-overseer-border {
     border: solid 3px #bf32f5;
+  }
+
+  .login 
+  {
+      background-color: #343a40 !important; /* Assuming 'jet' refers to a dark grey/black color */
+      color: #adff2f; /* Assuming 'green-yellow' refers to a shade like 'GreenYellow' */
+      font-size: 20px;
+      font-weight: 600;
+      font-style: normal;
+      margin-bottom: 0.5rem; /* Bootstrap's mb-2 class is typically 0.5rem */
+      padding: 1rem; /* Bootstrap's p-3 class is typically 1rem */
+      margin-left: 2rem;
+  }
+.login:hover
+  {
+      background-color: #464e55 !important; /* Assuming 'jet' refers to a dark grey/black color */
   }

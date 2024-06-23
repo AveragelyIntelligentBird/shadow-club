@@ -48,7 +48,7 @@ export default function CommunityHeader({ cid, name, description, bannerImage, v
       <p className="wd-green-yellow wd-secondary-font">{description}</p>
         {id && currentUser &&
         <Link to={`${location.pathname}/New`} className="text-decoration-none" >
-            <button type="button" className="btn rounded-pill btn-sm wd-btn-secondary">Post</button> 
+            <button type="button" className="btn rounded-pill btn-sm wd-btn-secondary">New Post <FaPlus className="mb-1"/></button> 
         </Link>
         }
     </div>

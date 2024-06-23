@@ -1,5 +1,5 @@
 import "./styles.css";
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 // import { users, posts } from '../Database';
 import { RiHeartFill, RiHeartLine, RiReplyLine } from "react-icons/ri";
 import { FaCommentDots, FaTrash } from "react-icons/fa";
@@ -7,43 +7,54 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import * as client from './client';
 import * as circleClient from '../Circles/client';
+import * as profileClient from '../Account/client';
 
 type PostProps = {
     id: string;
 };
 
 export default function Post({id }: PostProps)  {
-  const {user} = useSelector((state: any) => state.accountReducer);
-  const [post, setPost] = React.useState<any>(null);
-  const [author, setAuthor] = React.useState<any>(null);
-  const [circle, setCircle] = React.useState<any>(null);
+  // const {user} = useSelector((state: any) => state.accountReducer);
+  let user = useSelector((state: any) => state.accountReducer)["currentUser"];
+  // console.log(user);
+  // console.log(user);
+  const [post, setPost] = useState<any>(null);
+  const [author, setAuthor] = useState<any>(null);
+  const [circle, setCircle] = useState<any>(null);
+  const [liked, setLiked] = useState<boolean>(false);
+  const [deleted, setDeleted] = useState<boolean>(false);
   const fetchPost = async () => {
     const post = await client.findPostForId(id);
     const author = await client.findAuthorForPost(id);
     const circle = await circleClient.findCircleForId(post.circle);
+    user = user && await profileClient.findUserProfileById(user._id);
+    const liked = user && user.likes.includes(id);
+    console.log(post.title, post._id, liked);
     setPost(post);
     setAuthor(author);
     setCircle(circle);
+    setLiked(liked);
   }
-  React.useEffect(() => {
+  useEffect(() => {
     fetchPost();
   }, []);
 
-  if (!post) return null;
-  // May be fucky
-  const liked = user && user.likedPosts.includes(id);
+  if (!post) return null; 
   const likePost = async () => {
     if (liked) {
       await client.unlikePost(user._id, id);
+      setLiked(false);
     }
     else {
       await client.likePost(user._id, id);
+      setLiked(true);
     }
   }
   const deletePost = async () => {
     await client.deletePost(id);
+    setDeleted(true);
   }
-  // overseer user
+  if (deleted) return null;
   return (
     // We need to set the border based on the author's role and wether they are a mod of the post's community
     <div className={!author ? "post" :
@@ -68,8 +79,10 @@ export default function Post({id }: PostProps)  {
         <Link to={`/Post/${id}`} className="post-author">
           <button className="comment-button">Comments <FaCommentDots/></button>
         </Link>
-        {user && <button className="reply-button">Reply <RiReplyLine/></button>}
-        {user && <button className="like-button" onClick={() => likePost()}>
+        <Link to={`/Post/${id}/New`} className="post-author">
+          {user && <button className="reply-button">Reply <RiReplyLine/></button>}
+        </Link>
+        {user && <button className="like-button float-end" onClick={() => likePost()}>
           {liked ? <RiHeartFill/> : <RiHeartLine/>}
         </button>}
       </div>
