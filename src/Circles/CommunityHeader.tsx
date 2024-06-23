@@ -37,12 +37,13 @@ export default function CommunityHeader({ cid, name, description, bannerImage, v
       <div className="pt-2">
         <h1 className="wd-green-yellow wd-primary-font">
             {name} {visibility ? <FaUnlockAlt className="mb-3 pb-2"/> : <FaLock className="mb-3 pb-2"/>}
-            {currentUser &&
+            {/* {currentUser &&
                 (currentUser?.memberOf.includes(cid) ? (
                     <button type="button" className="mb-3 btn rounded-pill btn-sm wd-btn-secondary">Leave <FaTimes className="pb-1"/></button>
                 ) : (
                     <button type="button" className="mb-3 btn rounded-pill btn-sm wd-btn-secondary">Join <FaPlus className="pb-1"/></button>
-                ))}
+                ))} */}
+            {/* If the user is anonymous, route  */}
         </h1>
       </div>
       <p className="wd-green-yellow wd-secondary-font">{description}</p>

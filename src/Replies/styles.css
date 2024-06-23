@@ -25,6 +25,7 @@
     margin-bottom: 0.5rem; /* Bootstrap's mb-2 class is typically 0.5rem */
     padding: 1rem; /* Bootstrap's p-3 class is typically 1rem */
     margin-left: 2rem;
+    border-radius: 1rem;
 }
 .login:hover
 {

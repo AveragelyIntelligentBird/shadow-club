@@ -36,7 +36,7 @@ export default function PostEditor() {
         fetchCircle();
     }, []);
     if (!circle) return null;
-    if (!user) return <Link className="login" to="/Login">Login to reply</Link>
+    if (!user) return <Link className="login" to="/SignIn">Login to reply</Link>
     return (
         <div className="border border-3 p-2 rounded-2">
             <h2 className="wd-green-yellow wd-primary-font">Create a new post</h2>

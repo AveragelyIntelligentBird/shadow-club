@@ -54,6 +54,18 @@ export const findModeratorsForCircle = async (circleId: string) => {
     return response.data;
 }
 
+export const joinCircle = async (circleId: string, userId: string) => {
+    const response = await axiosWithCredentials
+      .put(`${CIRCLES_API}/${circleId}/join`, { userId });
+    return response.data;
+}
+
+export const leaveCircle = async (circleId: string, userId: string) => {
+    const response = await axiosWithCredentials
+      .put(`${CIRCLES_API}/${circleId}/leave`, { userId });
+    return response.data;
+}
+
 // export const createCircle = async (circle: any) => {
 //     const response = await axiosWithCredentials.post(CIRCLES_API, circle);
 //     return response.data;
