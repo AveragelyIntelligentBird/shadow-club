@@ -19,8 +19,9 @@ export default function HomeFeed() {
             // console.log("user", user)
             let all = await client.findAllPosts();
             const publicPosts = await client.findPublicPosts();
+            const publicPostsIds = publicPosts.map((p: any) => p._id);
             // use the publicPosts list to add a public field to each object in all
-            all = all.map((p: any) => ({...p, public: publicPosts.includes(p._id)}));
+            all = all.map((p: any) => ({...p, public: publicPostsIds.includes(p._id)}));
             // Add an author field to each post in all for whether the user is following the author
             all = await Promise.all(all.map(async (p: any) => {
                 const author = await client.findAuthorForPost(p._id);
