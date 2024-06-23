@@ -14,8 +14,8 @@ export default function EditorNav() {
                             key={`/Profile/u/Edit/${link}`}
                             to={`/Profile/u/Edit/${link}`}
                             className={`text-decoration-none fs-5 ${
-                                pathname.includes(`/Edit/${link}`) 
-                                    ? "wd-green-yellow wd-green-yellow-bot-border" 
+                                pathname.includes(`/Edit/${link}`)
+                                    ? "wd-green-yellow wd-green-yellow-bot-border"
                                     : "wd-camb-blue"
                             }`}
                         >
@@ -24,6 +24,15 @@ export default function EditorNav() {
                     </div>
                 ))
             }
+            <div className="mb-2">
+                <Link
+                    key={`/BecomeElite`}
+                    to={`/BecomeElite`}
+                    className={`text-decoration-none fs-5 wd-camb-blue`}
+                >
+                    Elite Status
+                </Link>
+            </div>
         </div>
     );
 }

@@ -9,6 +9,8 @@ import SignUp from "./Account/SignUp"
 import Cabal from "./Cabal"
 import './App.css';
 import Session from './Account/Session';
+import BecomeElite from "./BecomeElite";
+import ProtectedRoute from "./Account/ProtectedRoute";
 
 function App() {
     return (
@@ -21,6 +23,11 @@ function App() {
                             <Route path="/Welcome" element={<Welcome/>}/>
                             <Route path="/SignIn" element={<SignIn/>}/>
                             <Route path="/SignUp" element={<SignUp/>}/>
+                            <Route path="/BecomeElite" element={
+                                <ProtectedRoute>
+                                    <BecomeElite/>
+                                </ProtectedRoute>}
+                            />
                             <Route path="/*" element={<Cabal/>}/>
                         </Routes>
                     </div>

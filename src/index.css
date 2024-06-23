@@ -128,7 +128,7 @@ code {
 }
 
 .wd-jet-border {
-    border: solid 2px #363635;
+    border: solid 2px #363635 !important;
 }
 
 .wd-green-yellow-bot-border {
