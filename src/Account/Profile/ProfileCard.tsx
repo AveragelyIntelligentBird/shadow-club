@@ -16,7 +16,7 @@ export default function ProfileCard({profile, fetchProfile}: {
     const navigate = useNavigate();
     const currentUser =
         useSelector((state: any) => state.accountReducer)["currentUser"];
-    const uid = currentUser._id;
+    const uid = currentUser?._id;
     const { profileId } = useParams();
     const isThisUser = (profileId === "u");
 
