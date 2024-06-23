@@ -5,11 +5,12 @@ import { Link } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import Feed from './Feed';
 import * as client from './client';
+import * as profileClient from '../Account/client';
 import { useSelector } from 'react-redux';
 
 export default function HomeFeed() {
     // const tabs = ["Subscribed", "All", "Following"]
-    const user = useSelector((state: any) => state.accountReducer)["currentUser"];
+    let user = useSelector((state: any) => state.accountReducer)["currentUser"];
     const [allPosts, setAllPosts] = useState<any[]>([]);
     const [subPosts, setSubPosts] = useState<any[]>([]);
     const [followingPosts, setFollowingPosts] = useState<any[]>([]);
@@ -17,6 +18,7 @@ export default function HomeFeed() {
     const fetchPosts = async () => {
         if (user) {
             // console.log("user", user)
+            user = user && await profileClient.findUserProfileById(user._id);
             let all = await client.findAllPosts();
             const publicPosts = await client.findPublicPosts();
             const publicPostsIds = publicPosts.map((p: any) => p._id);

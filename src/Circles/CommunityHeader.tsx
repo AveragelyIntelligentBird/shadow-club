@@ -4,6 +4,7 @@ import "./styles.css";
 import { FaPlus, FaTimes, FaUnlockAlt, FaLock } from "react-icons/fa";
 import { Link, useLocation, useParams } from "react-router-dom";
 import * as client from "./client";
+import * as profileClient from "../Account/client";
 import { useSelector } from "react-redux";
 
 type CommunityHeaderProps = {
@@ -23,11 +24,16 @@ export default function CommunityHeader({ cid, name, description, bannerImage, v
   const [joined, setJoined] = useState<boolean>(false);
   let { id } = useParams(); 
   const location = useLocation();
+
+  const fetchJoined = async () => {
+    user = user && await profileClient.findUserProfileById(user._id);
+    const joined = user && user.memberOf.includes(cid);
+    setJoined(joined);
+  };
+
   useEffect(() => {
-    if (user) {
-      setJoined(user?.memberOf.includes(cid));
-    }
-  });
+    fetchJoined();
+  }, [user, cid]);
   // Should probably have a dependency array for useEffect
   const joinCircle = async () => {
     await client.joinCircle(cid, user._id);
@@ -59,7 +65,7 @@ export default function CommunityHeader({ cid, name, description, bannerImage, v
               >
                 Leave <FaTimes className="pb-1" />
               </button>
-            ) : (
+            ) : ( visibility &&
               <button
                 type="button"
                 className="mb-3 btn rounded-pill btn-sm wd-btn-secondary"

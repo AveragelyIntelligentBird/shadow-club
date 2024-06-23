@@ -16,6 +16,7 @@ type PostProps = {
 export default function Post({id }: PostProps)  {
   // const {user} = useSelector((state: any) => state.accountReducer);
   let user = useSelector((state: any) => state.accountReducer)["currentUser"];
+  
   // console.log(user);
   // console.log(user);
   const [post, setPost] = useState<any>(null);
