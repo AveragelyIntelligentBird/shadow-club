@@ -11,6 +11,7 @@ import './App.css';
 import Session from './Account/Session';
 import BecomeElite from "./BecomeElite";
 import ProtectedRoute from "./Account/ProtectedRoute";
+import Footer from "./Navigation/Footer";
 
 function App() {
     return (
@@ -31,6 +32,7 @@ function App() {
                             <Route path="/*" element={<Cabal/>}/>
                         </Routes>
                     </div>
+                    <Footer/>
                 </HashRouter>
             </Session>
         </Provider>
