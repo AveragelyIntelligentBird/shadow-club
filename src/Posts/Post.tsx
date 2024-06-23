@@ -29,7 +29,7 @@ export default function Post({id }: PostProps)  {
     const circle = await circleClient.findCircleForId(post.circle);
     user = user && await profileClient.findUserProfileById(user._id);
     const liked = user && user.likes.includes(id);
-    console.log(post.title, post._id, liked);
+    // console.log(post.title, post._id, liked);
     setPost(post);
     setAuthor(author);
     setCircle(circle);

@@ -2,16 +2,18 @@ import React, { ReactElement } from "react";
 import Post from "./Post";
 import "./styles.css";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 // If the user is anonymous or has the defualt role, display an advertisement image
 // from the advertisements folder in the images directory every five posts
 export default function Feed({ posts }: FeedProps): ReactElement {
+  const user = useSelector((state: any) => state.accountReducer)["currentUser"];
   return (
     <div className="feed">
       {posts.map((post, index) => (
         <div>
-          {index % 5 === 0 &&
+          {index % 5 === 0 && (!user || user.role === "user") &&
             <Link to="/BecomeElite">
-              <img className="ad" src={`images/advertisements/${index / 5 + 1}.png`} />
+              <img className="ad" src={`images/advertisements/${index % 6 + 1}.png`} />
             </Link>}
           <Post key={index} id={post._id} />
         </div>

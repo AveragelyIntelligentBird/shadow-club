@@ -19,39 +19,69 @@ type CommunityHeaderProps = {
 // It should take in a circle id and use the client to fetch the circle data.
 // It should use the state to determine if the user is a member of the circle.
 export default function CommunityHeader({ cid, name, description, bannerImage, visibility}: CommunityHeaderProps) {
-  const { currentUser } = useSelector((state: any) => state.accountReducer);
-  // const [circle, setCircle] = useState<any>(null);
-  // const fetchCircle = async () => {
-  //   const circle = await client.findCircleForId(cid || "");
-  //   setCircle(circle);
-  // };
-  // useEffect(() => {
-  //   fetchCircle();
-  // }, []);
-  // If the path encodes a specific community, display a button to create a new post
+  let user = useSelector((state: any) => state.accountReducer)["currentUser"];
+  const [joined, setJoined] = useState<boolean>(false);
   let { id } = useParams(); 
   const location = useLocation();
+  useEffect(() => {
+    if (user) {
+      setJoined(user?.memberOf.includes(cid));
+    }
+  });
+  // Should probably have a dependency array for useEffect
+  const joinCircle = async () => {
+    await client.joinCircle(cid, user._id);
+    setJoined(true);
+    // console.log("Joined circle");
+  }
+  const leaveCircle = async () => {
+    await client.leaveCircle(cid, user._id);
+    setJoined(false);
+    // console.log("Left circle");
+  }
   return (
     <div className="border community-header border-3">
       <Banner id={cid} image={bannerImage} />
       <div className="pt-2">
         <h1 className="wd-green-yellow wd-primary-font">
-            {name} {visibility ? <FaUnlockAlt className="mb-3 pb-2"/> : <FaLock className="mb-3 pb-2"/>}
-            {/* {currentUser &&
-                (currentUser?.memberOf.includes(cid) ? (
-                    <button type="button" className="mb-3 btn rounded-pill btn-sm wd-btn-secondary">Leave <FaTimes className="pb-1"/></button>
-                ) : (
-                    <button type="button" className="mb-3 btn rounded-pill btn-sm wd-btn-secondary">Join <FaPlus className="pb-1"/></button>
-                ))} */}
-            {/* If the user is anonymous, route  */}
+          {name}{" "}
+          {visibility ? (
+            <FaUnlockAlt className="mb-3 pb-2" />
+          ) : (
+            <FaLock className="mb-3 pb-2" />
+          )}
+          {user &&
+            (joined ? (
+              <button
+                type="button"
+                className="mb-3 btn rounded-pill btn-sm wd-btn-secondary"
+                onClick={() => leaveCircle()}
+              >
+                Leave <FaTimes className="pb-1" />
+              </button>
+            ) : (
+              <button
+                type="button"
+                className="mb-3 btn rounded-pill btn-sm wd-btn-secondary"
+                onClick={() => joinCircle()}
+              >
+                Join <FaPlus className="pb-1" />
+              </button>
+            ))}
+          {/* If the user is anonymous, route  */}
         </h1>
       </div>
       <p className="wd-green-yellow wd-secondary-font">{description}</p>
-        {id && currentUser &&
-        <Link to={`${location.pathname}/New`} className="text-decoration-none" >
-            <button type="button" className="btn rounded-pill btn-sm wd-btn-secondary">New Post <FaPlus className="mb-1"/></button> 
+      {id && user && (
+        <Link to={`${location.pathname}/New`} className="text-decoration-none">
+          <button
+            type="button"
+            className="btn rounded-pill btn-sm wd-btn-secondary"
+          >
+            New Post <FaPlus className="mb-1" />
+          </button>
         </Link>
-        }
+      )}
     </div>
   );
 }
