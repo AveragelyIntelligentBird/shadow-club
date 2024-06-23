@@ -1,6 +1,6 @@
 import {useLocation, useNavigate, useParams} from "react-router";
 import {Link, Route, Routes} from "react-router-dom";
-import './index.css';
+import '../index.css';
 import NotFound from "../../NotFound";
 import ProfileCard from "./ProfileCard";
 import Affiliations from "./Affiliations";

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router";
-import "./index.css"
+import "../index.css"
 
 export default function EditorNav() {
     const {pathname} = useLocation();

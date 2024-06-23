@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom";
+
 import React, {useState} from "react";
 import * as client from "./client";
 import {useNavigate} from "react-router";
@@ -29,7 +29,7 @@ export default function LoginForms() {
         <div className="row">
             <div className="col-lg-6">
                 <h3 className="wd-green-yellow wd-primary-font">Login</h3>
-                <div className="col-10">
+                <div className="col-11">
                     <input type="text"
                            className="form-control wd-input-field-format mb-3"
                            placeholder="Username"
@@ -47,20 +47,27 @@ export default function LoginForms() {
                     <button type="submit" onClick={signin} className="wd-primary-btn wd-primary-btn-on-hover">
                         Sign in{" "}
                     </button>
-                    <Link to="/SignUp" className="mx-3 wd-camb-blue">
-                        <span className="wd-color-on-hover">Sign Up{" "}</span>
-                    </Link>
-                    {error && <div className="mt-3 wd-mahogany">{error}</div>}
+                    {error && <span className="mt-3 ms-2 wd-mahogany">{error}</span>}
                 </div>
             </div>
             <div className="col-lg">
+                <div className="d-lg-flex mb-3">
+                    <div className="wd-vert-divider mx-4 d-none d-lg-block"></div>
+                    <div className="wd-hor-divider my-4 d-block d-lg-none"></div>
+                    <div className="pb-3">
+                        <h3 className="wd-green-yellow wd-primary-font">Create Account</h3>
+                        <button className="wd-primary-btn wd-primary-btn-on-hover"
+                                onClick={() => navigate("/SignUp")}>
+                            Sign Up {" "}
+                        </button>
+                    </div>
+                </div>
                 <div className="d-lg-flex">
                     <div className="wd-vert-divider mx-4 d-none d-lg-block"></div>
                     <div className="wd-hor-divider my-4 d-block d-lg-none"></div>
                     <div className="pb-3">
                         <h3 className="wd-green-yellow wd-primary-font">Anonymous Access</h3>
-                        <button type="submit"
-                                className="wd-primary-btn wd-primary-btn-on-hover"
+                        <button className="wd-primary-btn wd-primary-btn-on-hover"
                                 onClick={() => handleAnonymousLogin()}>
                             Proceed {" "}
                         </button>

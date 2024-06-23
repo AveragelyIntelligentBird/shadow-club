@@ -22,6 +22,22 @@
     margin: 10px;
 }
 
+.wd-pfp-choice-pic {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: solid 2px #8FBB99;
+    margin: 10px;
+}
+
+.wd-pfp-choice-pic-selected {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: solid 4px #81E979;
+    margin: 10px;
+}
+
 .wd-other-user-pic {
     width: 50px;
     height: 50px;

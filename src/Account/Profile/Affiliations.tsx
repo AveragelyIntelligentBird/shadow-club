@@ -16,10 +16,12 @@ export default function Affiliations (
         setProfileCircles(circles);
     };
     const fetchProfileFollowers = async () => {
+        if (profile.followers.length === 0) return;
         const followers = await profileClient.findManyProfilesById(profile.followers);
         setProfileFollowers(followers);
     };
     const fetchProfileFollowing = async () => {
+        if (profile.following.length === 0) return;
         const following = await profileClient.findManyProfilesById(profile.following);
         setProfileFollowing(following);
     };

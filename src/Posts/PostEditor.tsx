@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import * as client from './client';
 import * as circleClient  from '../Circles/client';
-import * as profileClient from '../Profile/client';
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 // import { users, communities } from "../Database";
