@@ -50,7 +50,9 @@ export default function CommunityHeader({ cid, name, description, bannerImage, v
       <Banner id={cid} image={bannerImage} />
       <div className="pt-2">
         <h1 className="wd-green-yellow wd-primary-font">
-          {name}{" "}
+          <Link to={`/Circles/${cid}`} className="wd-green-yellow text-decoration-none">
+            {name}{"    "}
+          </Link>
           {visibility ? (
             <FaUnlockAlt className="mb-3 pb-2" />
           ) : (

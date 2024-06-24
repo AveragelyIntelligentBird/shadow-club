@@ -8,7 +8,7 @@
   }
   */
   .post {
-    background-color: #343a40; /* Assuming 'jet' refers to a dark grey/black color */
+    background-color: #363635; /* Assuming 'jet' refers to a dark grey/black color */
     color: #adff2f; /* Assuming 'green-yellow' refers to a shade like 'GreenYellow' */
     border-radius: 1rem; /* Assuming '2' is 0.25rem in bootstrap-like classes */
     /* font-family: 'YourSecondaryFontFamily', sans-serif;  Replace with actual secondary font */
@@ -108,7 +108,7 @@
     font-size: 16px;
     cursor: pointer;
     padding-bottom: 3px;
-    color: #343a40;
+    color: #363635;
     /* Round the corners */
     border-radius: 1rem;
   }
@@ -175,7 +175,7 @@
 
   .login 
   {
-      background-color: #343a40 !important; /* Assuming 'jet' refers to a dark grey/black color */
+      background-color: #363635 !important; /* Assuming 'jet' refers to a dark grey/black color */
       color: #adff2f; /* Assuming 'green-yellow' refers to a shade like 'GreenYellow' */
       font-size: 20px;
       font-weight: 600;
