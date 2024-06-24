@@ -64,7 +64,9 @@ export default function Post({id }: PostProps)  {
                     author.moderatorOf.find((c: any) => {return c === circle._id}) ? "post wd-moderator-border" :
                     author.role === "user" ? "post" : "post"}>
       <div className="d-flex">
-        <h2 className="post-title">{post.title}</h2>
+        <Link to={`/Post/${id}`} className="post-title text-decoration-none">
+          <h2 className="post-title">{post.title}</h2>
+        </Link>
         {author && <Link to={`/Profile/${author._id}`} className="post-author"> {author.username}</Link>}
         {/* If the user is the author of the post OR moderates the community it is posted in, add a deletion button */}
         {author && user &&
