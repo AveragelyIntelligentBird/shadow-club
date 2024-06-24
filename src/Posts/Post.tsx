@@ -38,7 +38,7 @@ export default function Post({id }: PostProps)  {
   }
   useEffect(() => {
     fetchPost();
-  }, []);
+  }, [id]);
 
   if (!post) return null; 
   const likePost = async () => {

@@ -20,7 +20,7 @@ export default function Reply({ id }: { id: string}) {
     return (
         <div className="reply">
             {/* Like with the post component, link to the author then have the reply body */}
-            {author && <Link to={`/Cabal/Profile/${author._id}`} className="post-author"> {author.username}</Link>}
+            {author && <Link to={`/Profile/${author._id}`} className="post-author"> {author.username}</Link>}
             <p className="reply-body">{reply.body}</p>
         </div>
     );
