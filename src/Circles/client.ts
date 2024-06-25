@@ -8,7 +8,7 @@ export const fetchAllCircles = async () => {
   const { data } = await axiosWithCredentials.get(CIRCLES_API);
   return data;
 };
-export const findCirclesByPartialName = async (partialName: string) => {
+export const findCirclesByPartialName = async (partialName: any) => {
     const response = await axios.get(`${CIRCLES_API}?partialName=${partialName}`);
     return response.data;
 };

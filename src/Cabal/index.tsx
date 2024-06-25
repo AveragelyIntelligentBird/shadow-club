@@ -23,8 +23,8 @@ export default function Cabal() {
                     <Route path="/Profile" element={<Navigate to={(currentUser) ? "u" : "noid"}/>}/>
                     <Route path="/Profile/:profileId" element={<Navigate to="Posts"/>}/>
                     <Route path="/Profile/:profileId/*" element={<Profile/>}/>
-                    <Route path="/Search" element={<Search/>}/>
-                    <Route path="/Search/*" element={<Search/>}/>
+                    <Route path="/Search/:searchScope/*" element={<Search/>}/>
+                    <Route path="/Search/:searchScope/:searchPrompt" element={<Search/>}/>
                     <Route path="/Feed" element={<Navigate to={(currentUser) ? "Subscribed" : "All"}/>}/>
                     <Route path="/Feed/*" element={<HomeFeed/>}/>
                     <Route path="/Circles" element={<Circles/>}/>

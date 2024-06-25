@@ -12,7 +12,7 @@ export default function CabalNavigation(): ReactElement {
         (!currentUser)
             ? { label: "Sign In", path: "/SignIn", includesPath: "/SignIn", icon: GiDoubleFaceMask }
             : { label: "My Profile",  path: `/Profile`, includesPath: `/Profile/u/`, icon: GiDoubleFaceMask },
-        { label: "Search", path: `/Search`, includesPath:`/Search`, icon: BsSearch  },
+        { label: "Search", path: `/Search/Posts/`, includesPath:`/Search`, icon: BsSearch  },
         { label: "Feed", path: `/Feed`, includesPath:`/Feed`, icon: BsEyeFill },
         { label: "Circles", path: `/Circles`,includesPath:`/Circles`,  icon: BsGlobe },
     ];
