@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import Post from "./Post";
 import "./styles.css";
 import { Link } from "react-router-dom";
@@ -7,9 +7,10 @@ import { useSelector } from "react-redux";
 // from the advertisements folder in the images directory every five posts
 export default function Feed({ posts }: FeedProps): ReactElement {
   const user = useSelector((state: any) => state.accountReducer)["currentUser"];
+  // Reverse the posts so the most recent post is at the top
   return (
     <div className="feed">
-      {posts.map((post, index) => (
+      {posts.slice().reverse().map((post, index) => (
         <div>
           {index % 5 === 0 && (!user || user.role === "user") &&
             <Link to="/BecomeElite">
