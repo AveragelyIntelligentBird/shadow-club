@@ -18,24 +18,44 @@ export default function CabalNavigation(): ReactElement {
     ];
     return (
         <div id="nav-bar"
-             className="fs-2 p-3 px-4 mb-2 wd-bg-jet wd-green-yellow wd-primary-font d-flex align-items-center"
+             className="p-3 px-4 mb-2 wd-bg-jet wd-green-yellow wd-primary-font"
         >
-            <Link key={"/Home"} to={"/Home"}
-                  className={`fs-2 d-flex align-items-center text-decoration-none wd-green-yellow`}
-            >
-                <GiWarlockEye className="fs-1 mb-2 me-2"/> Cabal
-            </Link>
-            <div className="flex-fill"/>
-            {links.map((link) => (
-                <Link key={link.path}
-                      to={link.path}
-                      className={`fs-4 ms-3 d-flex text-decoration-none wd-green-yellow
-                      ${pathname.includes(link.includesPath) ? "wd-green-yellow-bot-border" : ""}`}
+            <div className="d-none d-md-block d-md-flex align-items-center">
+                <Link key={"/Home"} to={"/Home"}
+                      className={`d-none d-sm-block fs-2 d-flex align-items-center text-decoration-none wd-green-yellow`}
                 >
-                    {link.icon({className: "fs-3 me-1"})}
-                    {link.label}
+                    <GiWarlockEye className="fs-1 mb-2 me-2"/> Cabal
                 </Link>
-            ))}
+                <div className="flex-fill"/>
+                {links.map((link) => (
+                    <Link key={link.path}
+                          to={link.path}
+                          className={`fs-4 ms-3 d-flex text-decoration-none wd-green-yellow
+                      ${pathname.includes(link.includesPath) ? "wd-green-yellow-bot-border" : ""}`}
+                    >
+                        {link.icon({className: "fs-3 me-1"})}
+                        {link.label}
+                    </Link>
+                ))}
+            </div>
+            <div className="d-md-none d-flex align-items-center">
+                <Link key={"/Home"} to={"/Home"}
+                      className={`d-none d-sm-block fs-3 d-flex align-items-center text-decoration-none wd-green-yellow`}
+                >
+                    <GiWarlockEye className="fs-2 mb-2 me-2"/> Cabal
+                </Link>
+                <div className="flex-fill"/>
+                {links.map((link) => (
+                    <Link key={link.path}
+                          to={link.path}
+                          className={`ms-2 d-flex text-decoration-none wd-green-yellow
+                      ${pathname.includes(link.includesPath) ? "wd-green-yellow-bot-border" : ""}`}
+                    >
+                        {link.icon({className: "fs-4 me-1"})}
+                        {link.label}
+                    </Link>
+                ))}
+            </div>
         </div>
     );
 };

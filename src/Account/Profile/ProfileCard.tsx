@@ -58,7 +58,7 @@ export default function ProfileCard({profile, fetchProfile}: {
 
     return (
         <div id="profile-card"
-             className={`col-3 wd-default-card align-self-start mx-4 ms-5 p-5
+             className={`col-lg-3 wd-default-card align-self-start mx-lg-4 ms-lg-5 p-5
              wd-green-yellow wd-secondary-font
              ${(profile.role === "user") ? "" : `wd-${profile.role}-border`}`}
         >
@@ -95,7 +95,11 @@ export default function ProfileCard({profile, fetchProfile}: {
             </div>
             <div className="d-flex justify-content-center">
                 <img src={profile.avatar}
-                     className="wd-profile-pic"
+                     className="wd-profile-pic d-lg-none d-xl-block"
+                     alt="avatar pfp"
+                />
+                <img src={profile.avatar}
+                     className="wd-profile-pic-lg d-none d-lg-block d-xl-none"
                      alt="avatar pfp"
                 />
             </div>
