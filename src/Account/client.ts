@@ -32,6 +32,11 @@ export const findUserProfileById = async (id: string | undefined) => {
     return response.data;
 };
 
+export const findProfilesByPartialName = async (partialName: string) => {
+    const response = await axios.get(`${PROFILES_API}?partialName=${partialName}`);
+    return response.data;
+};
+
 export const findAllProfiles = async () => {
     const response = await axios.get(`${PROFILES_API}`);
     return response.data;
@@ -54,7 +59,7 @@ export const findProfilesByRole = async (role: string) => {
     return response.data;
 };
 
-export const findProfilesByPartialName = async (name: string) => {
+export const findProfilesByUsername = async (name: string) => {
     const response = await axios.get(`${PROFILES_API}?name=${name}`);
     return response.data;
 };
