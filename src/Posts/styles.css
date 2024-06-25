@@ -189,11 +189,11 @@
       background-color: #464e55 !important; /* Assuming 'jet' refers to a dark grey/black color */
   }
 
-.ad {
-  width: 30%;
-  height: auto;
-  border: 5px solid #8faf96;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
+  .ad {
+    width: 30%;
+    height: auto;
+    border: 5px solid #8faf96;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }

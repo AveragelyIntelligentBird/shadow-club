@@ -71,7 +71,7 @@ export default function Post({id }: PostProps)  {
         {/* If the user is the author of the post OR moderates the community it is posted in, add a deletion button */}
         {author && user &&
           /* If the user is the author or a moderator of the community, display the button. */
-          (user._id === author._id || user.moderatorOf.find((c: any)=>{return c._id === circle._id}))
+          (user._id === author._id || user.role === "overseer" || user.moderatorOf.find((c: any)=>{return c._id === circle._id}))
             && <button className="delete-button" onClick={() => deletePost()}> <FaTrash/> </button>}
       </div>
       {/* Maybe add styling?? */}
