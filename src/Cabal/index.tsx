@@ -9,6 +9,7 @@ import PostEditor from "../Posts/PostEditor";
 import {useSelector} from "react-redux";
 import PostReplies from "../Posts/PostReplies";
 import ReplyEditor from "../Replies/ReplyEditor";
+import Search from "../Search";
 
 export default function Cabal() {
     const currentUser =
@@ -22,6 +23,8 @@ export default function Cabal() {
                     <Route path="/Profile" element={<Navigate to={(currentUser) ? "u" : "noid"}/>}/>
                     <Route path="/Profile/:profileId" element={<Navigate to="Posts"/>}/>
                     <Route path="/Profile/:profileId/*" element={<Profile/>}/>
+                    <Route path="/Search" element={<Search/>}/>
+                    <Route path="/Search/*" element={<Search/>}/>
                     <Route path="/Feed" element={<Navigate to={(currentUser) ? "Subscribed" : "All"}/>}/>
                     <Route path="/Feed/*" element={<HomeFeed/>}/>
                     <Route path="/Circles" element={<Circles/>}/>

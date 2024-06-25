@@ -22,7 +22,7 @@ export default function CabalNavigation(): ReactElement {
         >
             <div className="d-none d-md-block d-md-flex align-items-center">
                 <Link key={"/Home"} to={"/Home"}
-                      className={`d-none d-sm-block fs-2 d-flex align-items-center text-decoration-none wd-green-yellow`}
+                      className={`d-none d-sm-block fs-2 d-sm-flex align-items-center text-decoration-none wd-green-yellow`}
                 >
                     <GiWarlockEye className="fs-1 mb-2 me-2"/> Cabal
                 </Link>

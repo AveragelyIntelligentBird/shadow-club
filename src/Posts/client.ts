@@ -22,6 +22,11 @@ export const findPostForId = async (postId: string) => {
   return response.data;
 };
 
+export const findPostsByPartialName = async (partialName: string) => {
+    const response = await axios.get(`${POSTS_API}?partialName=${partialName}`);
+    return response.data;
+};
+
 export const findPostsForCircle = async (circleId: string) => {
   const response = await axiosWithCredentials
     .get(`${CIRCLES_API}/${circleId}/posts`);

@@ -22,7 +22,9 @@ function App() {
                         <Routes>
                             <Route path="/" element={<Navigate to="Welcome"/>}/>
                             <Route path="/Welcome" element={<Welcome/>}/>
+                            <Route path="/Login" element={<Navigate to="/SignIn"/>}/>
                             <Route path="/SignIn" element={<SignIn/>}/>
+                            <Route path="/Register" element={<Navigate to="/SignUp"/>}/>
                             <Route path="/SignUp" element={<SignUp/>}/>
                             <Route path="/BecomeElite" element={
                                 <ProtectedRoute>
