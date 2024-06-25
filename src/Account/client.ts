@@ -42,6 +42,11 @@ export const findProfilesNotInCircle = async (notInCircleId: string) => {
     return response.data;
 };
 
+export const findProfilesInCircle = async (inCircleId: string) => {
+    const response = await axios.get(`${PROFILES_API}?inCircleId=${inCircleId}`);
+    return response.data;
+};
+
 export const findAllProfiles = async () => {
     const response = await axios.get(`${PROFILES_API}`);
     return response.data;

@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Banner from "./Banner";
 import "./styles.css";
 import { FaPlus, FaTimes, FaUnlockAlt, FaLock } from "react-icons/fa";
@@ -6,7 +6,6 @@ import { Link, useLocation, useParams } from "react-router-dom";
 import * as client from "./client";
 import * as profileClient from "../Account/client";
 import { useSelector } from "react-redux";
-import AddPersonPopup from "./AddPersonPopup";
 
 type CommunityHeaderProps = {
     cid: string;
@@ -91,17 +90,6 @@ export default function CommunityHeader({ cid, name, description, bannerImage, v
                     </button>
                 </Link>
             )}
-            {id && user && user.moderatorOf.find((c: any) => {
-                return c === id
-            }) && (
-                <button
-                    data-bs-toggle="modal" data-bs-target="#wd-add-person-to-circle"
-                    className="btn rounded-pill ms-1 btn-sm wd-btn-secondary"
-                >
-                    Add New Person <FaPlus className="mb-1"/>
-                </button>
-            )}
-            <AddPersonPopup circleId={cid}/>
         </div>
     );
 }

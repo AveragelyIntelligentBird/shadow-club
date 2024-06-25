@@ -1,31 +1,28 @@
-import {useDispatch} from "react-redux";
 import * as profileClient from "../Account/client";
 import * as circleClient from "../Circles/client";
-import {setCurrentUser} from "../Account/reducer";
-import {useNavigate} from "react-router";
 import {useEffect, useState} from "react";
-import {joinCircle} from "../Circles/client";
 
 
 export default function AddPersonPopup (
-    {circleId}: {circleId: any}
+    {cid, members, setMembers}: { cid: any, members: any[], setMembers: (m : any) => void }
 ){
     const [profilesNotInCircle, setProfilesNotInCircle] = useState([]);
     const [newPerson , setNewPerson] = useState({_id: ""});
     const addPerson = async () =>  {
         if (!newPerson) return;
 
-        await circleClient.joinCircle(circleId, newPerson._id);
+        await circleClient.joinCircle(cid, newPerson._id);
+        setMembers([...members, newPerson]);
     }
 
     const fetchProfilesNotInCircle = async () => {
-        const profiles = await profileClient.findProfilesNotInCircle(circleId);
+        const profiles = await profileClient.findProfilesNotInCircle(cid);
         setProfilesNotInCircle(profiles);
     }
 
     useEffect(() => {
         fetchProfilesNotInCircle();
-    },[]);
+    },[members]);
 
     return (
         <div id="wd-add-person-to-circle"
