@@ -6,6 +6,7 @@ import { Link, useLocation, useParams } from "react-router-dom";
 import * as client from "./client";
 import * as profileClient from "../Account/client";
 import { useSelector } from "react-redux";
+import AddPersonPopup from "./AddPersonPopup";
 
 type CommunityHeaderProps = {
     cid: string;
@@ -45,51 +46,62 @@ export default function CommunityHeader({ cid, name, description, bannerImage, v
     setJoined(false);
     // console.log("Left circle");
   }
-  return (
-    <div className="border community-header border-3">
-      <Banner id={cid} image={bannerImage} />
-      <div className="pt-2">
-        <h1 className="wd-green-yellow wd-primary-font">
-          <Link to={`/Circles/${cid}`} className="wd-green-yellow text-decoration-none">
-            {name}{"    "}
-          </Link>
-          {visibility ? (
-            <FaUnlockAlt className="mb-3 pb-2" />
-          ) : (
-            <FaLock className="mb-3 pb-2" />
-          )}
-          {user &&
-            (joined ? (
-              <button
-                type="button"
-                className="mb-3 btn rounded-pill btn-sm wd-btn-secondary"
-                onClick={() => leaveCircle()}
-              >
-                Leave <FaTimes className="pb-1" />
-              </button>
-            ) : ( visibility &&
-              <button
-                type="button"
-                className="mb-3 btn rounded-pill btn-sm wd-btn-secondary"
-                onClick={() => joinCircle()}
-              >
-                Join <FaPlus className="pb-1" />
-              </button>
-            ))}
-          {/* If the user is anonymous, route  */}
-        </h1>
-      </div>
-      <p className="wd-green-yellow wd-secondary-font">{description}</p>
-      {id && user && (
-        <Link to={`${location.pathname}/New`} className="text-decoration-none">
-          <button
-            type="button"
-            className="btn rounded-pill btn-sm wd-btn-secondary"
-          >
-            New Post <FaPlus className="mb-1" />
-          </button>
-        </Link>
-      )}
-    </div>
-  );
+    return (
+        <div className="border community-header border-3">
+            <Banner id={cid} image={bannerImage}/>
+            <div className="pt-2">
+                <h1 className="wd-green-yellow wd-primary-font">
+                    <Link to={`/Circles/${cid}`} className="wd-green-yellow text-decoration-none">
+                        {name}{"    "}
+                    </Link>
+                    {visibility ? (
+                        <FaUnlockAlt className="mb-3 pb-2"/>
+                    ) : (
+                        <FaLock className="mb-3 pb-2"/>
+                    )}
+                    {user &&
+                        (joined ? (
+                            <button
+                                type="button"
+                                className="mb-3 btn rounded-pill btn-sm wd-btn-secondary"
+                                onClick={() => leaveCircle()}
+                            >
+                                Leave <FaTimes className="pb-1"/>
+                            </button>
+                        ) : (visibility &&
+                            <button
+                                type="button"
+                                className="mb-3 btn rounded-pill btn-sm wd-btn-secondary"
+                                onClick={() => joinCircle()}
+                            >
+                                Join <FaPlus className="pb-1"/>
+                            </button>
+                        ))}
+                    {/* If the user is anonymous, route  */}
+                </h1>
+            </div>
+            <p className="wd-green-yellow wd-secondary-font">{description}</p>
+            {id && user && (
+                <Link to={`${location.pathname}/New`} className="text-decoration-none">
+                    <button
+                        type="button"
+                        className="btn rounded-pill btn-sm wd-btn-secondary"
+                    >
+                        New Post <FaPlus className="mb-1"/>
+                    </button>
+                </Link>
+            )}
+            {id && user && user.moderatorOf.find((c: any) => {
+                return c === id
+            }) && (
+                <button
+                    data-bs-toggle="modal" data-bs-target="#wd-add-person-to-circle"
+                    className="btn rounded-pill ms-1 btn-sm wd-btn-secondary"
+                >
+                    Add New Person <FaPlus className="mb-1"/>
+                </button>
+            )}
+            <AddPersonPopup circleId={cid}/>
+        </div>
+    );
 }

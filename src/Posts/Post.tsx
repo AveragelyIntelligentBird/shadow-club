@@ -59,7 +59,7 @@ export default function Post({id }: PostProps)  {
   return (
     // We need to set the border based on the author's role and wether they are a mod of the post's community
     <div className={!author ? "post" :
-                    author.role === "premium" ? "post wd-elite-border" :
+                    author.role === "elite" ? "post wd-elite-border" :
                     author.role === "overseer" ? "post wd-overseer-border" :
                     author.moderatorOf.find((c: any) => {return c === circle._id}) ? "post wd-moderator-border" :
                     author.role === "user" ? "post" : "post"}>
@@ -71,7 +71,7 @@ export default function Post({id }: PostProps)  {
         {/* If the user is the author of the post OR moderates the community it is posted in, add a deletion button */}
         {author && user &&
           /* If the user is the author or a moderator of the community, display the button. */
-          (user._id === author._id || user.moderatorOf.find((c: any)=>{return c._id === circle._id}))
+          (user._id === author._id || user.moderatorOf.find((c: any)=>{return c === circle._id}))
             && <button className="delete-button" onClick={() => deletePost()}> <FaTrash/> </button>}
       </div>
       {/* Maybe add styling?? */}
@@ -86,7 +86,7 @@ export default function Post({id }: PostProps)  {
           {user && <button className="reply-button">Reply <RiReplyLine/></button>}
         </Link>
         {user && <button className="like-button float-end" onClick={() => likePost()}>
-          {liked ? <RiHeartFill/> : <RiHeartLine/>}
+          {liked ? <RiHeartFill className="fs-4"/> : <RiHeartLine className="fs-4"/>}
         </button>}
       </div>
     </div>

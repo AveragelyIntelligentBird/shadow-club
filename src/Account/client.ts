@@ -37,6 +37,11 @@ export const findProfilesByPartialName = async (partialName: string) => {
     return response.data;
 };
 
+export const findProfilesNotInCircle = async (notInCircleId: string) => {
+    const response = await axios.get(`${PROFILES_API}?notInCircleId=${notInCircleId}`);
+    return response.data;
+};
+
 export const findAllProfiles = async () => {
     const response = await axios.get(`${PROFILES_API}`);
     return response.data;
