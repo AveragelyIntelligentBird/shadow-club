@@ -8,15 +8,16 @@ import { useSelector } from "react-redux";
 export default function Feed({ posts }: FeedProps): ReactElement {
   const user = useSelector((state: any) => state.accountReducer)["currentUser"];
   // Reverse the posts so the most recent post is at the top
+  console.log(user.role);
   return (
     <div className="feed">
       {posts.slice().reverse().map((post, index) => (
-        <div>
-          {index % 5 === 0 && (!user || user.role === "user") &&
+        <div key={index}>
+          {(index % 5 === 0) && (!user || user.role === "user") &&
             <Link to="/BecomeElite">
               <img className="ad" src={`images/advertisements/${index % 6 + 1}.png`} />
             </Link>}
-          <Post key={index} id={post._id} />
+          <Post id={post._id} />
         </div>
       ))}
     </div>

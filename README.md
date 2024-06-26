@@ -2,6 +2,8 @@
 
 This is the Final Project for the course CS5610 Web Development, Summer I 2024 at Northeastern University.
 
+This repository contains files for the client side of the appliation. The server side of the project can be found [here](https://github.com/tntmancer/shadow-server).
+
 ## Description
 The project is a fake social media platform for the shadow government, where members of the 
 shadow government can communicate with each other and share information. 
